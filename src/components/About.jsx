@@ -22,10 +22,10 @@ const About = () => {
               <h4 className="text-2xl font-medium text-primary">BSc in Computer Science</h4>
               <p className="text-gray-800 text-xl">University of Ruhuna </p>
               <p className="text-gray-600">2022-(up to date)</p>
-              <p className="text-gray-700 mt-2 mb-5">
+              <p className="text-gray-700 mt-5 mb-10 ">
                 Relevant coursework: Data Structures and Algorithms, Database Systems, Web Development, Software Engineering, Artificial Intelligence
               </p>
-              <h4 className="text-2xl font-medium text-primary">Full-stack Master Developer program (Diploma)</h4>
+              <h4 className="text-2xl font-medium text-primary mt-5 md:mt-1 ">Full-stack Master Developer program (Diploma)</h4>
               <p className="text-gray-800 text-xl">Developerstack</p>
               <p className="text-gray-600">2025-(up to date)</p>
             </div>

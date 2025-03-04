@@ -52,9 +52,9 @@ const Skills = () => {
         <div className="grid grid-rows-2 md:grid-rows-2 lg:grid-cols-2 gap-8">
           {skillCategories.map((category) => (
             <div key={category.id} className="bg-gray-50 p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300">
-              <div className="text-center mb-4 flex flex-row items-center gap-2 relative">
-                <div className="absolute left-0">{category.icon}</div>
-                <h3 className="text-xl font-semibold text-dark mx-auto">{category.title}</h3>
+              <div className="text-center mb-4  md:flex-col items-center justify-center gap-2 md:relative ">
+                <div className="md:absolute left-0 flex justify-center">{category.icon}</div>
+                <h3 className="text-sm font-semibold text-dark mx-auto">{category.title}</h3>
               </div>
 
               <div className="flex flex-wrap mt-10 justify-center">
