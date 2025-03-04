@@ -4,9 +4,12 @@ import { Link } from 'react-scroll';
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  
 
   useEffect(() => {
+    
     const handleScroll = () => {
+
       if (window.scrollY > 50) {
         setIsScrolled(true);
       } else {
@@ -17,6 +20,8 @@ const Header = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+
 
   return (
     <header 
@@ -32,7 +37,7 @@ const Header = () => {
           duration={500} 
           className="text-xl font-bold text-primary cursor-pointer"
         >
-        CS Portfolio
+        
         </Link>
 
         {/* Mobile menu button */}
