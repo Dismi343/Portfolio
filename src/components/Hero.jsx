@@ -16,7 +16,7 @@ const Hero = () => {
   },[]);
   return (
     <section id="hero" className="min-h-screen flex items-center pt-16 bg-gradient-to-br from-emerald-50 to-emerald-900 ">
-      <div className={`container mx-auto px-4 transform transition-all duration-1000 ${isOpen ? 'translate-y-0 opacity-100' :  ' translate-y-10 opacity-0'}`}>
+      <div className={`container mx-auto px-4 transform transition-all duration-1000 delay-200 ${isOpen ? 'translate-y-0 opacity-100' :  ' translate-y-10 opacity-0'}`}>
         <div className="flex flex-col md:flex-row items-center mx-10">
           <div className="md:w-1/2 mb-10 md:mb-0">
             <h1 className={`text-4xl md:text-5xl font-bold mb-4 text-dark `}>
@@ -34,7 +34,7 @@ const Hero = () => {
                 spy={true}
                 smooth={true}
                 duration={500}
-                className="btn btn-primary"
+                className="btn btn-primary cursor-pointer"
               >
                 View My Work
               </Link>

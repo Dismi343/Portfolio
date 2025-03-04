@@ -5,6 +5,14 @@ const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   
+  const [isOpen,setIsOpen] = useState(false);
+
+  useEffect(()=>{
+    const textVisible=setTimeout(()=>{
+      setIsOpen(true);
+      return textVisible;
+    },);
+  },[]);
 
   useEffect(() => {
     
@@ -25,7 +33,7 @@ const Header = () => {
 
   return (
     <header 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-1000 ${
         isScrolled ? 'bg-white shadow-md py-2' : 'bg-emerald-900/25 py-4 '
       }`}
     >
@@ -55,7 +63,7 @@ const Header = () => {
         </button>
 
         {/* Desktop navigation */}
-        <nav className="hidden md:flex space-x-1">
+        <nav className={`hidden md:flex space-x-1 transform transition-all duration-1000 delay-200 ${isOpen ? 'translate-y-0 opacity-100' :  ' translate-y-10 opacity-0'}`}>
           <Link 
             activeClass="active"
             to="hero" 
