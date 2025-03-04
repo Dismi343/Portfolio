@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply font-poppins bg-gray-50 text-gray-800;
+}
+
+.section-title {
+  @apply text-3xl font-bold mb-6 text-dark relative inline-block;
+}
+
+.section-title::after {
+  content: '';
+  @apply absolute bottom-0 left-0 w-1/2 h-1 bg-primary rounded-full;
+}
+
+.project-card {
+  @apply bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300;
+}
+
+.project-card:hover {
+  @apply shadow-lg transform -translate-y-1;
+}
+
+.nav-link {
+  @apply px-4 py-2 text-gray-700 hover:text-primary transition-colors duration-300;
+}
+
+.nav-link.active {
+  @apply text-primary font-medium;
+}
+
+.btn {
+  @apply px-6 py-2 rounded-md font-medium transition-all duration-300;
+}
+
+.btn-primary {
+  @apply bg-primary text-white hover:bg-primary-dark;
+}
+
+.btn-outline {
+  @apply border-2 border-primary text-primary hover:bg-primary hover:text-white;
+}
+
+.skill-badge {
+  @apply px-3 py-1 rounded-full text-sm font-medium bg-gray-200 text-gray-800 mr-2 mb-2;
+}
