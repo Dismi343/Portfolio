@@ -49,14 +49,15 @@ const Skills = () => {
           I've developed a diverse set of skills throughout my academic journey and personal projects. Here's an overview of my technical expertise:
         </p>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-rows-2 md:grid-rows-2 lg:grid-cols-2 gap-8">
           {skillCategories.map((category) => (
             <div key={category.id} className="bg-gray-50 p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300">
-              <div className="text-center mb-4">
-                {category.icon}
-                <h3 className="text-xl font-semibold text-dark">{category.title}</h3>
+              <div className="text-center mb-4 flex flex-row items-center gap-2 relative">
+                <div className="absolute left-0">{category.icon}</div>
+                <h3 className="text-xl font-semibold text-dark mx-auto">{category.title}</h3>
               </div>
-              <div className="flex flex-wrap">
+
+              <div className="flex flex-wrap mt-10 justify-center">
                 {category.skills.map((skill, index) => (
                   <span key={index} className="skill-badge">
                     {skill}

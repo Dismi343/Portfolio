@@ -42,7 +42,7 @@ const Projects = () => {
           Here are some of the projects I've worked on. Each project has helped me develop different skills and tackle unique challenges.
         </p>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {projects.map((project) => (
             <div key={project.id} className="project-card">
               <div className="h-48 overflow-hidden">
