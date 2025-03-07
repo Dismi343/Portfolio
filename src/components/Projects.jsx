@@ -83,7 +83,7 @@ const Projects = () => {
             href="https://github.com/Dismi343/" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="btn btn-outline"
+            className="btn bg-slate-200  rounded-lg drop-shadow-xl transition-transform duration-300 ease-in-out   hover:shadow-2xl  "
           >
             See More on GitHub
           </a>

@@ -8,7 +8,7 @@ export default {
     extend: {
       backgroundImage:{
         'chip': "url('./assets/chip.png')",
-        'pro':'url("./assets/img1.jpg")',
+        'pro':'url("./assets/Profile_pic2.png")',
       },
       fontFamily: {
         poppins: ['Poppins', 'sans-serif'],

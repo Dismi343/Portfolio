@@ -18,7 +18,7 @@ const Header = () => {
     
     const handleScroll = () => {
 
-      if (window.scrollY > 50) {
+      if (window.scrollY > 500) {
         setIsScrolled(true);
       } else {
         setIsScrolled(false);
@@ -34,19 +34,19 @@ const Header = () => {
   return (
     <header 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-1000 ${
-        isScrolled ? 'bg-white shadow-md py-2' : 'bg-emerald-900/25 py-4 '
+        isScrolled ? 'bg-white shadow-md py-2' : 'bg-zinc-900/0 py-4 '
       }`}
     >
-      <div className="container mx-auto px-4 flex justify-between items-center">
-        <Link 
+      <div className="container mx-auto mt-5 px-4 md:flex justify-evenly  items-center  md:border-4 border-blue-500 rounded-full max-w-screen-md">
+        {/* <Link 
           to="hero" 
           spy={true} 
           smooth={true} 
           duration={500} 
-          className="text-xl font-bold text-primary cursor-pointer"
+          className="text-xl font-bold text-primary cursor-pointer "
         >
         
-        </Link>
+        </Link> */}
 
         {/* Mobile menu button */}
         <button 
@@ -63,7 +63,7 @@ const Header = () => {
         </button>
 
         {/* Desktop navigation */}
-        <nav className={`hidden md:flex space-x-1 transform transition-all duration-1000 delay-200 ${isOpen ? 'translate-y-0 opacity-100' :  ' translate-y-10 opacity-0'}`}>
+        <nav className={`hidden md:flex transform transition-all duration-1000 delay-200 ${isOpen ? 'translate-y-0 opacity-100' :  ' translate-y-10 opacity-0'}`}>
           <Link 
             activeClass="active"
             to="hero" 
