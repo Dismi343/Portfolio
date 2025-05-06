@@ -34,10 +34,10 @@ const Header = () => {
   return (
     <header 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-1000 ${
-        isScrolled ? 'bg-white shadow-md py-2' : 'bg-zinc-900/0 py-4 '
+        isScrolled ? 'bg-white shadow-md py-2' : 'bg-zinc-900/0 py-4  '
       }`}
     >
-      <div className="container mx-auto mt-5 px-4 md:flex justify-evenly  items-center  md:border-4 border-blue-500 rounded-full max-w-screen-md">
+      <div className="container mx-auto mt-5 px-4 md:flex justify-evenly  items-center  md:border-4 border-blue-500 rounded-full max-w-screen-md ">
         {/* <Link 
           to="hero" 
           spy={true} 

@@ -12,6 +12,7 @@ const Projects = () => {
       technologies: ['React', 'Node.js', 'Express', 'MongoDB', 'TypeScript'],
       image: chip,
       github: 'https://github.com/Dismi343/Chip-Heaven-react-fullstack',
+      link:"https://chip-heaven-react-fullstack.onrender.com"
      
     },
     {
@@ -21,6 +22,7 @@ const Projects = () => {
       technologies: ['python'],
       image: psw,
       github: 'https://github.com/Dismi343/pasword_generator',
+      link:"#"
       
     },
     {
@@ -30,6 +32,7 @@ const Projects = () => {
       technologies: ['java'],
       image: 'https://images.unsplash.com/photo-1592210454359-9043f067919b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
       github: 'https://github.com/Dismi343/wage-Calculator',
+      link:"#"
       
     }
   ];
@@ -62,7 +65,7 @@ const Projects = () => {
                     </span>
                   ))}
                 </div>
-                <div className="flex space-x-4">
+                <div className="flex justify-between ">
                   <a 
                     href={project.github} 
                     target="_blank" 
@@ -70,6 +73,14 @@ const Projects = () => {
                     className="flex items-center text-primary hover:text-primary-dark transition-colors duration-300"
                   >
                     <FaGithub className="mr-1" /> Code
+                  </a>
+                  <a 
+                    href={project.link} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="flex items-center text-primary hover:text-primary-dark transition-colors duration-300"
+                  >
+                    <div className="mr-1" /> Preview
                   </a>
                   
                 </div>
