@@ -15,7 +15,7 @@ const Hero = () => {
     },);
   },[]);
   return (
-    <section id="hero" className=" flex items-center pt-16 bg-zinc-900  ">
+    <section id="hero" className=" flex items-center pt-16 bg-dark-dark  ">
       <div className={` container mx-auto px-4 transform transition-all duration-1000 delay-200 ${isOpen ? 'translate-y-0 opacity-100' :  ' translate-y-10 opacity-0'}`}>
         <div className=" flex flex-col md:flex-row items-center mx-10">
           <div className="md:w-1/2 mb-10 md:mb-0">
@@ -74,6 +74,7 @@ const Hero = () => {
           </div>
         </div>
       </div>
+     
     </section>
   );
 };

@@ -14,13 +14,16 @@ function App() {
     <div className="min-h-screen">
       <Header />
       <main>
-        <Hero />
-        <div className="mx-10">
+        <div className=''>
+        <Hero/>   
+        </div>
+        
+       
         <About />
         <Projects />
         <Skills />
         <Contact />
-        </div>
+        
        
       </main>
       

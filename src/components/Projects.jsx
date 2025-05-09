@@ -4,6 +4,9 @@ import chip from '../assets/chip.png';
 import psw from '../assets/psw.png';
 
 const Projects = () => {
+
+
+
   const projects = [
     {
       id: 1,
@@ -38,29 +41,36 @@ const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="py-20 bg-gray-50">
-      <div className="container mx-auto px-4">
-        <h2 className="section-title">My Projects</h2>
-        <p className="text-gray-700 mb-10 max-w-2xl">
+    <>
+    <hr className='border-secondary-dark border-2 shadow-2xl  w-full shadow-md'></hr>
+    <section id="projects" className="py-20 bg-dark ">
+     
+      <div className="container mx-auto px-4 ">
+        <h2 className="section-title">
+          <div className='text-white'>
+          My Projects
+          </div>
+          </h2>
+        <p className="text-white mb-10 max-w-2xl">
           Here are some of the projects I've worked on. Each project has helped me develop different skills and tackle unique challenges.
         </p>
         
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 ">
           {projects.map((project) => (
-            <div key={project.id} className="project-card">
+            <div key={project.id} className="rounded-xl bg-secondary hover:shadow-2xl transition-shadow duration-300 shadow-sm hover:scale-105 transition-transform duration-300">
               <div className="h-48 overflow-hidden">
                 <img 
                   src={project.image} 
                   alt={project.title} 
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover rounded-t-xl"
                 />
               </div>
-              <div className="p-6">
-                <h3 className="text-xl font-semibold mb-2 text-dark">{project.title}</h3>
-                <p className="text-gray-700 mb-4">{project.description}</p>
+              <div className="p-6 ">
+                <h3 className="text-xl font-semibold mb-2 text-white">{project.title}</h3>
+                <p className="text-gray-700 mb-4 text-white">{project.description}</p>
                 <div className="mb-4 flex flex-wrap">
                   {project.technologies.map((tech, index) => (
-                    <span key={index} className="skill-badge">
+                    <span key={index} className="p-4 bg-primary hover: m-2 rounded-full h-10 flex items-center justify-center shadow-lg shadow-dark-dark">
                       {tech}
                     </span>
                   ))}
@@ -70,7 +80,7 @@ const Projects = () => {
                     href={project.github} 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="flex items-center text-primary hover:text-primary-dark transition-colors duration-300"
+                    className="flex items-center text-white hover:text-dark transition-colors duration-300"
                   >
                     <FaGithub className="mr-1" /> Code
                   </a>
@@ -78,7 +88,7 @@ const Projects = () => {
                     href={project.link} 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="flex items-center text-primary hover:text-primary-dark transition-colors duration-300"
+                    className="flex items-center text-white hover:text-dark transition-colors duration-300"
                   >
                     <div className="mr-1" /> Preview
                   </a>
@@ -94,13 +104,15 @@ const Projects = () => {
             href="https://github.com/Dismi343/" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="btn bg-slate-200  rounded-lg drop-shadow-xl transition-transform duration-300 ease-in-out   hover:shadow-2xl  "
+            className="btn bg-primary-light  rounded-lg drop-shadow-xl  hover:shadow-2xl transition-transform duration-300 hover:scale-105 "
           >
             See More on GitHub
           </a>
         </div>
       </div>
     </section>
+    </>
+    
   );
 };
 

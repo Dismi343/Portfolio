@@ -33,27 +33,19 @@ const Header = () => {
 
   return (
     <header 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-1000 ${
-        isScrolled ? 'bg-white shadow-md py-2' : 'bg-zinc-900/0 py-4  '
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-1000  ${
+        isScrolled ? 'bg-transparent py-2  ' : 'bg-transparent py-4  '
       }`}
     >
-      <div className="container mx-auto mt-5 px-4 md:flex justify-evenly  items-center  md:border-4 border-blue-500 rounded-full max-w-screen-md ">
-        {/* <Link 
-          to="hero" 
-          spy={true} 
-          smooth={true} 
-          duration={500} 
-          className="text-xl font-bold text-primary cursor-pointer "
-        >
-        
-        </Link> */}
+      <div className=" container mx-auto mt-5 px-4 md:flex justify-evenly  items-center  md:border-4 border-primary-light rounded-full max-w-screen-md md:bg-white/75 md:shadow-2xl shadow-white/25 ">
+      
 
         {/* Mobile menu button */}
         <button 
-          className="md:hidden text-black focus:outline-none"
+          className="md:hidden text-white  focus:outline-none "
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             {isMenuOpen ? (
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
             ) : (

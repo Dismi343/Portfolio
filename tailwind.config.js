@@ -14,21 +14,32 @@ export default {
         poppins: ['Poppins', 'sans-serif'],
       },
       colors: {
+    
         primary: {
-          light: '#4da6ff',
-          DEFAULT: '#0078ff',
-          dark: '#0057b8',
+          light: '#AEB075',
+          DEFAULT: '#A6A867',
+          dark: '#91935D',
+         
         },
         secondary: {
-          light: '#8c54ff',
-          DEFAULT: '#6c2bd9',
-          dark: '#4a1e9e',
+          light: '#7C7D52',
+          DEFAULT: '#51513D',
+          dark: '#51513D',
         },
         dark: {
-          light: '#2d3748',
-          DEFAULT: '#1a202c',
-          dark: '#171923',
+          light: '#36392F',
+          DEFAULT: '#292D28',
+          dark: '#191D1E',
         },
+      },
+    },
+    animation: {
+      scroll: 'scroll 40s linear infinite',
+    },
+    keyframes: {
+      scroll: {
+        '0%': { transform: 'translateX(0)' },
+        '100%': { transform: 'translateX(-50%)' },
       },
     },
   },
