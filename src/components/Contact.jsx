@@ -1,7 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState,useRef } from 'react';
 import { FaEnvelope, FaGithub, FaLinkedin, FaMapMarkerAlt,FaPhone } from 'react-icons/fa';
+import emailJs from '@emailjs/browser';
 
 const Contact = () => {
+  const form = useRef();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -12,6 +14,9 @@ const Contact = () => {
   const [submitMessage, setSubmitMessage] = useState('');
   const [submitStatus, setSubmitStatus] = useState('');
 
+
+
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData(prevData => ({
@@ -20,25 +25,32 @@ const Contact = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+   const sendEmail = (e)=>{
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate form submission
+    emailJs.sendForm('service_nxdnli8','template_di1snp4',form.current,'79xE9zxsdqJW6N5Kk')
+    .then((result) => {
+      console.log(result.text);
+    },(error)=>{
+      console.log(error.text);
+    })
+
     setTimeout(() => {
       setIsSubmitting(false);
       setSubmitStatus('success');
       setSubmitMessage('Thank you for your message! I will get back to you soon.');
       setFormData({ name: '', email: '', message: '' });
     }, 1500);
-  };
 
+   }
+
+  
   return (
     <section id="contact" className="py-20 bg-dark-dark">
       <div className="container mx-auto px-4">
         <h2 className="section-title">
           <div className='text-white'>
-              Get In Touch
+              Reach Out to Me
           </div>
           </h2>
         <p className="text-white mb-10 max-w-2xl">
@@ -121,7 +133,7 @@ const Contact = () => {
           <div className="md:w-1/2 md:pl-10">
             <h3 className="text-2xl font-semibold mb-6 text-primary-light">Send Me a Message</h3>
             
-            <form onSubmit={handleSubmit}>
+            <form ref={form} onSubmit={sendEmail}  >
               <div className="mb-4">
                 <label htmlFor="name" className="block text-primary mb-2">Name</label>
                 <input
