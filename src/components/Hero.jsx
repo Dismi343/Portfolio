@@ -43,10 +43,23 @@ const Hero = () => {
                 spy={true}
                 smooth={true}
                 duration={500}
-                className="btn btn-outline cursor-pointer   animate-pulse"
+                className="btn btn-outline cursor-pointer animate-slide hover:[animation-play-state:paused]"
               >
                 Contact Me
               </Link>
+            </div>
+             <div className="  ">
+            <button className="bg-primary text-white font-semibold py-4 px-[106px] rounded-xl mt-6 hover:bg-primary-dark transition duration-300 hover:scale-105" 
+            onClick={() =>{
+              const link = document.createElement('a');
+              link.href = "/Dismithav CV-parttime.pdf";
+              link.download = "Dismitha Cv.pdf";
+              document.body.appendChild(link);
+              link.click();
+              document.body.removeChild(link);
+            }}>
+            Download CV
+            </button>
             </div>
             <div className="flex mt-8 space-x-4">
               <a
@@ -65,7 +78,10 @@ const Hero = () => {
               >
                 <FaLinkedin />
               </a>
+             
             </div>
+           
+           
           </div>
           <div className="md:w-3/4 flex justify-center ">
             <div className="  w-full  md:w-[700px] md:h-[700px] grayscale  bg-pro bg-cover flex items-center justify-center margin-0 ">

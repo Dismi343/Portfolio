@@ -108,8 +108,8 @@ const Skills = () => {
       </div>
 
          <div className={`mt-8 relative w-full overflow-hidden bg-transparent py-4 flex`}>
-            <div className="relative flex gap-1 hover:pause-animation">
-                <div className="flex  animate-scroll">
+            <div className="relative flex gap-1">
+                <div className="flex  animate-scroll ">
                     {duplicatedImages.map(image => (
                     <div
                     key={image.id}

@@ -35,12 +35,19 @@ export default {
     },
     animation: {
       scroll: 'scroll 40s linear infinite',
+      slide : 'fall 3s ease infinite',
     },
     keyframes: {
       scroll: {
         '0%': { transform: 'translateX(0)' },
         '100%': { transform: 'translateX(-50%)' },
       },
+        fall: {
+                '0%': { transform: 'translate(0%,-25%) ' },
+                '50%': { transform: 'translate(0%, 25%) ' },
+                '100%': { transform: 'translate(0%,-25%) ' },
+                
+              },
     },
   },
   plugins: [],
