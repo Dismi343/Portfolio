@@ -11,12 +11,12 @@ import Footer from './components/Footer';
 
 function App() {
   return (
-    <div className="min-h-screen">
-      <Header />
+    <div className="min-h-screen  ">
+      <Header  />
       <main>
-        <div className=''>
+       
         <Hero/>   
-        </div>
+        
         
        
         <About />

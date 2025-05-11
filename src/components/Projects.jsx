@@ -2,9 +2,19 @@ import React from 'react';
 import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
 import chip from '../assets/chip.png';
 import psw from '../assets/psw.png';
+import { useEffect, useState } from 'react';
 
 const Projects = () => {
 
+const [isScrolled, setScrolled] = useState(false);
+
+  useEffect(()=>{
+    const handleScroll=()=>{
+      const Scrollposition = window.pageYOffset;
+      setScrolled(Scrollposition > 900);
+    };
+    window.addEventListener('scroll',handleScroll);
+  })
 
 
   const projects = [
@@ -55,7 +65,7 @@ const Projects = () => {
           Here are some of the projects I've worked on. Each project has helped me develop different skills and tackle unique challenges.
         </p>
         
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 ">
+        <div className={`grid grid-cols-1 lg:grid-cols-3 gap-10 thransition-all transform duration-1000 delay-100 ${isScrolled? 'transform translater-y-0 opacity-100':'transform translate-y-10 opacity-0'} `}>
           {projects.map((project) => (
             <div key={project.id} className="rounded-xl bg-secondary hover:shadow-2xl transition-shadow duration-300 shadow-sm hover:scale-105 transition-transform duration-300">
               <div className="h-48 overflow-hidden">
@@ -99,12 +109,12 @@ const Projects = () => {
           ))}
         </div>
         
-        <div className="text-center mt-12">
+        <div className="text-center mt-12 hover:scale-105 transition-transform duration-300 ">
           <a 
             href="https://github.com/Dismi343/" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="btn bg-primary-light  rounded-lg drop-shadow-xl  hover:shadow-2xl transition-transform duration-300 hover:scale-105 "
+            className="btn bg-primary-light  rounded-lg drop-shadow-xl  hover:shadow-2xl   hover:bg-secondary hover:text-white transition-tranform duration-500"
           >
             See More on GitHub
           </a>

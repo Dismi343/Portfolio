@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { FaCode, FaDatabase, FaMobile, FaServer, FaTools, FaLaptopCode } from 'react-icons/fa';
 import Reactlogo from '../assets/skills/react-logo.png';  
 import Mysql from '../assets/skills/Mysql_logo.png';
@@ -13,6 +13,7 @@ import Git from '../assets/skills/git.png';
 
 const Skills = () => {
 
+    const [isScrolled, setScrolled] = useState(false);
    const images=[
             {id:1, src:`${Reactlogo}`,alt:"react" },
             {id:2, src:`${Mysql}`,alt:"mysql"},
@@ -27,7 +28,7 @@ const Skills = () => {
          
         ];
 
-        const duplicatedImages = [...images, ...images];
+        const duplicatedImages = [...images];
 
 
   const skillCategories = [
@@ -58,6 +59,14 @@ const Skills = () => {
     
   ];
 
+  useEffect(()=>{
+    const HandleScroll = ()=>{
+      const currentScroll = window.pageYOffset;
+      setScrolled(currentScroll > 1900);
+    };
+    window.addEventListener('scroll',HandleScroll);
+  })
+
   return (
 
     <>
@@ -73,17 +82,17 @@ const Skills = () => {
           I've developed a diverse set of skills throughout my academic journey and personal projects. Here's an overview of my technical expertise:
         </p>
         
-        <div className="grid grid-rows-2 md:grid-rows-2 lg:grid-cols-2 gap-8">
-          {skillCategories.map((category) => (
-            <div key={category._id} className="bg-secondary p-6 rounded-lg shadow- ">
+        <div className={`grid grid-rows-2 md:grid-rows-2 lg:grid-cols-2 gap-8 transition-transform duration-1000 `}>
+          {skillCategories.map((category, index) => (
+            <div key={category._id} className={`bg-secondary p-6 rounded-lg shadow-lg transform transition-all duration-700 ${isScrolled ? index %2 ===0?'transform translate-x-0 opacity-100':'transform translate-x-0 opacity-100' : index %2 ===0?'transform -translate-x-full opacity-0':'transform translate-x-full opacity-0'} `} >
               <div className="text-center mb-4  md:flex-col items-center justify-center gap-2 md:relative  ">
                 <div className="md:absolute left-0 flex justify-center">{category.icon}</div>
                 <h3 className="text-xl font-semibold text-dark mx-auto text-white text-shadow-lg/30 ">{category.title}</h3>
               </div>
 
               <div className="flex flex-wrap mt-10 justify-center">
-                {category.skills.map((skill, index) => (
-                  <span key={index} className="p-4 bg-primary hover: m-2 rounded-full h-10 flex items-center justify-center shadow-lg shadow-dark-dark">
+                {category.skills.map((skill) => (
+                  <span key={skill} className="p-4 bg-primary hover: m-2 rounded-full h-10 flex items-center justify-center shadow-lg shadow-dark-dark">
                     {skill}
                   </span>
                 ))}
@@ -109,17 +118,17 @@ const Skills = () => {
 
          <div className={`mt-8 relative w-full overflow-hidden bg-transparent py-4 flex`}>
             <div className="relative flex gap-1">
-                <div className="flex  animate-scroll ">
+                <div className="flex  animate-scroll  ">
                     {duplicatedImages.map(image => (
                     <div
                     key={image.id}
-                    data-id={image.id}
                     className={`
                         flex-shrink-0  md:w-80 w-20  overflow-hidden rounded-lg 
                     `}
                     >
-                    <div className="overflow-hidden rounded-lg lg:w-40 lg:h-40 w-10 h-10 md:w-20 md:h-20">
+                    <div key={image.id} className="overflow-hidden rounded-lg lg:w-40 lg:h-40 w-10 h-10 md:w-20 md:h-20">
                         <img 
+                        key={image.id}
                         src={image.src} 
                         alt={image.alt} 
                         className="w-full h-full object-cover "
