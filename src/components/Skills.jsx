@@ -82,7 +82,7 @@ const Skills = () => {
           I've developed a diverse set of skills throughout my academic journey and personal projects. Here's an overview of my technical expertise:
         </p>
         
-        <div className={`grid grid-rows-2 md:grid-rows-2 lg:grid-cols-2 gap-8 transition-transform duration-1000 `}>
+        <div className={`overflow-x-hidden grid grid-rows-2 md:grid-rows-2 lg:grid-cols-2  gap-8 transition-transform duration-1000 `}>
           {skillCategories.map((category, index) => (
             <div key={category._id} className={`bg-secondary p-6 rounded-lg shadow-lg transform transition-all duration-700 ${isScrolled ? index %2 ===0?'transform translate-x-0 opacity-100':'transform translate-x-0 opacity-100' : index %2 ===0?'transform -translate-x-full opacity-0':'transform translate-x-full opacity-0'} `} >
               <div className="text-center mb-4  md:flex-col items-center justify-center gap-2 md:relative  ">
