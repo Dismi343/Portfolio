@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Link } from 'react-scroll';
 import { FaGithub, FaLinkedin, FaArrowRight } from 'react-icons/fa';
 import { HiOutlineDocumentDownload } from 'react-icons/hi';
-import profile from '../assets/profile_pic2.png';
+import profile from '../assets/Profile_pic2.png';
 const Hero = () => {
   const [loaded, setLoaded] = useState(false);
 
@@ -88,9 +88,7 @@ const Hero = () => {
                 src={profile} 
                 alt="Yushan Dismitha"
                 className="w-full h-full object-cover"
-                onError={(e) => {
-                    e.target.src = "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1000&auto=format&fit=crop"; // Placeholder for demo
-                }}
+               
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#09090b] via-transparent to-transparent opacity-60" />
             </div>
