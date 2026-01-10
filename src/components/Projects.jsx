@@ -1,128 +1,173 @@
-import React from 'react';
-import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
+import React, { useEffect, useState } from 'react';
+import { FaGithub, FaExternalLinkAlt, FaCode, FaCircle } from 'react-icons/fa';
 import chip from '../assets/chip.png';
-import psw from '../assets/psw.png';
-import { useEffect, useState } from 'react';
+import psw from '../assets/weather.png';
+import infocur from '../assets/infocur.png';
+import rag from '../assets/RAG-PDF.png';
+import RIUSS from '../assets/RIUSS.png';
+
 
 const Projects = () => {
+  const [isVisible, setIsVisible] = useState(false);
 
-const [isScrolled, setScrolled] = useState(false);
-
-  useEffect(()=>{
-    const handleScroll=()=>{
-      const Scrollposition = window.pageYOffset;
-      setScrolled(Scrollposition > 900);
-    };
-    window.addEventListener('scroll',handleScroll);
-  })
-
+  useEffect(() => {
+    setIsVisible(true);
+  }, []);
 
   const projects = [
     {
       id: 1,
-      title: 'E-commerce Platform',
-      description: 'A full-stack e-commerce application with admin dashboard',
-      technologies: ['React', 'Node.js', 'Express', 'MongoDB', 'TypeScript'],
-      image: chip,
-      github: 'https://github.com/Dismi343/Chip-Heaven-react-fullstack',
-      link:"https://chip-heaven-react-fullstack.onrender.com"
-     
+      title: 'AI Chat-Bot (RAG Architecture)',
+      description: 'A sophisticated document intelligence tool using Gemma and Milvus to perform semantic search on uploaded PDFs. Features a custom pipeline for text chunking and real-time context injection.',
+      technologies: ['Python', 'RAG', 'Milvus', 'Next.js'],
+      image: rag,
+      github: 'https://github.com/Dismi343/PDf-Reader',
+      link: "#",
+      isLive: false
     },
     {
       id: 2,
-      title: 'Password Generator',
-      description: 'An interactive application that provides random passwords according to user preferences.',
-      technologies: ['python'],
+      title: 'Weather-App',
+      description: 'A full-stack application leveraging Flask microservices and React. Handles dynamic API data fetching and conditional UI rendering based on real-time weather codes.',
+      technologies: ['Python', 'React', 'Flask', 'OpenWeatherMap'],
       image: psw,
-      github: 'https://github.com/Dismi343/pasword_generator',
-      link:"#"
-      
+      github: 'https://github.com/Dismi343/Weather-app',
+      link: "https://weather-app-frontend-xmff.onrender.com/",
+      isLive: true
     },
     {
       id: 3,
-      title: 'Wage-calculator',
-      description: 'Simple windows app that calculates the wage of an employee',
-      technologies: ['java'],
-      image: 'https://images.unsplash.com/photo-1592210454359-9043f067919b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
-      github: 'https://github.com/Dismi343/wage-Calculator',
-      link:"#"
-      
+      title: 'Infocur site - Event Booking & Progress Tracking Platform',
+      subtitle: '(Group Project)',
+      description: 'As the lead backend developer, I architected a robust event management system using Spring Boot and MongoDB. I designed a structured database schema that automates the transition from client bookings to post-production workflows. A key feature is the automated progress-tracking engine that synchronizes event statuses and media deliverables. I implemented complex business logic including custom DTO handling, service-layer abstraction, and a recursive cascade deletion system to ensure 100% data consistency across sessions and bookings.',
+      technologies: ['React', 'Spring-Boot', 'Rest-API', 'MongoDB'],
+      image: infocur,
+      github: 'https://github.com/Dismi343/Infocur-site',
+      link: "https://infocur-site.vercel.app/",
+      isLive: true
+    },
+    {
+      id: 4,
+      title: 'E-commerce Platform',
+      description: 'A full-stack e-commerce application featuring a robust admin dashboard, secure checkout, and real-time inventory tracking.',
+      technologies: ['React', 'Node.js', 'Express', 'MongoDB'],
+      image: chip,
+      github: 'https://github.com/Dismi343/Chip-Heaven-react-fullstack',
+      link: "https://chip-heaven-react-fullstack.onrender.com",
+      isLive: true
+    },
+     {
+      id: 5,
+      title: 'RIUSS-2025',
+      description: 'As the Frontend Developer for the Ruhuna International Undergraduate Science Symposium (RIUSS 2025), I designed and implemented a professional academic platform for the University of Ruhuna. I focused on creating a high-performance, responsive interface that serves as the central information hub for global researchers and students. The project required rigorous attention to detail—ensuring accessibility across all devices, managing complex scheduling layouts, and maintaining a visual identity aligned with university standards.',
+      technologies: ['React', 'Node.js', 'Express', 'MongoDB'],
+      image: RIUSS,
+      github: '#',
+      link: "https://www.sci.ruh.ac.lk/conference/RIUSS2025/",
+      isLive: true
     }
   ];
 
   return (
-    <>
-    <hr className='border-secondary-dark border-2 shadow-2xl  w-full shadow-md'></hr>
-    <section id="projects" className="py-20 bg-dark ">
-     
-      <div className="container mx-auto px-4 ">
-        <h2 className="section-title">
-          <div className='text-white'>
-          My Projects
+    <section id="projects" className="relative py-24 md:py-32 bg-[#09090b] text-zinc-100 overflow-hidden">
+      <div className="container mx-auto px-6 lg:px-12 relative z-10">
+        {/* Header */}
+        <div className="max-w-4xl mb-16 md:mb-24">
+          <div className="inline-flex items-center gap-3 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 backdrop-blur-md mb-6">
+            <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse"></span>
+            <span className="text-emerald-500 text-xs font-mono uppercase tracking-[0.2em]">Deployment Pipeline</span>
           </div>
+          <h2 className="text-5xl md:text-7xl font-bold mb-8 tracking-tight">
+            Featured <span className="text-zinc-500 italic font-light">Work</span>
           </h2>
-        <p className="text-white mb-10 max-w-2xl">
-          Here are some of the projects I've worked on. Each project has helped me develop different skills and tackle unique challenges.
-        </p>
-        
-        <div className={`grid grid-cols-1 lg:grid-cols-3 gap-10 thransition-all transform duration-1000 delay-100 ${isScrolled? 'transform translater-y-0 opacity-100':'transform translate-y-10 opacity-0'} `}>
+        </div>
+
+        {/* Grid */}
+        <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
           {projects.map((project) => (
-            <div key={project.id} className="rounded-xl bg-secondary hover:shadow-2xl transition-shadow duration-300 shadow-sm hover:scale-105 transition-transform duration-300">
-              <div className="h-48 overflow-hidden">
+            <div 
+              key={project.id} 
+              className="group relative flex flex-col bg-zinc-900/40 border border-zinc-800/50 rounded-2xl overflow-hidden hover:border-emerald-500/30 transition-all duration-500 shadow-2xl"
+            >
+              {/* Image Preview */}
+              <div className="relative aspect-video overflow-hidden">
                 <img 
                   src={project.image} 
                   alt={project.title} 
-                  className="w-full h-full object-cover rounded-t-xl"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
-              </div>
-              <div className="p-6 ">
-                <h3 className="text-xl font-semibold mb-2 text-white">{project.title}</h3>
-                <p className="text-gray-700 mb-4 text-white">{project.description}</p>
-                <div className="mb-4 flex flex-wrap">
-                  {project.technologies.map((tech, index) => (
-                    <span key={index} className="p-4 bg-primary hover: m-2 rounded-full h-10 flex items-center justify-center shadow-lg shadow-dark-dark">
+                <div className="absolute inset-0 bg-gradient-to-t from-[#09090b] via-[#09090b]/20 to-transparent" />
+                
+                {/* Status Badge for Live Apps */}
+                {project.isLive && (
+                  <div className="absolute top-4 right-4 flex items-center gap-2 px-3 py-1 bg-emerald-500 text-zinc-950 rounded-full text-[10px] font-bold uppercase tracking-widest shadow-lg">
+                    <FaCircle className="animate-pulse text-[6px]" />
+                    Live Now
+                  </div>
+                )}
+
+                <div className="absolute bottom-4 left-4 flex flex-wrap gap-2">
+                  {project.technologies.slice(0, 3).map((tech, i) => (
+                    <span key={i} className="px-2 py-1 text-[10px] font-mono bg-zinc-950/90 text-zinc-400 border border-zinc-800 rounded">
                       {tech}
                     </span>
                   ))}
                 </div>
-                <div className="flex justify-between ">
-                  <a 
-                    href={project.github} 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="flex items-center text-white hover:text-dark transition-colors duration-300"
-                  >
-                    <FaGithub className="mr-1" /> Code
-                  </a>
-                  <a 
-                    href={project.link} 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="flex items-center text-white hover:text-dark transition-colors duration-300"
-                  >
-                    <div className="mr-1" /> Preview
-                  </a>
-                  
+              </div>
+
+              {/* Content */}
+              <div className="p-8 flex flex-col flex-grow">
+                <div className="mb-3">
+                  <h3 className="text-xl font-bold text-zinc-100 group-hover:text-emerald-400 transition-colors">
+                    {project.title}
+                  </h3>
+                  {project.subtitle && (
+                    <p className="text-sm text-emerald-500 font-semibold mt-1">
+                      {project.subtitle}
+                    </p>
+                  )}
+                </div>
+                <p className="text-zinc-400 text-sm leading-relaxed mb-8 line-clamp-3">
+                  {project.description}
+                </p>
+
+                {/* Primary Action Button for Live Apps */}
+                <div className="mt-auto space-y-4">
+                  {project.isLive ? (
+                    <a 
+                      href={project.link} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="w-full py-3 rounded-xl bg-emerald-500 text-zinc-950 font-bold text-xs uppercase tracking-widest flex items-center justify-center gap-2 hover:bg-emerald-400 transition-all"
+                    >
+                      Launch Application <FaExternalLinkAlt size={10} />
+                    </a>
+                  ) : (
+                    <div className="w-full py-3 rounded-xl bg-zinc-800/50 text-zinc-500 font-bold text-xs uppercase tracking-widest flex items-center justify-center gap-2 cursor-not-allowed border border-zinc-700/30">
+                      Local Environment Only
+                    </div>
+                  )}
+
+                  {/* Secondary Links */}
+                  <div className="flex items-center justify-between pt-4 border-t border-zinc-800/50">
+                    <a 
+                      href={project.github} 
+                      target="_blank" 
+                      className="text-zinc-500 hover:text-white flex items-center gap-2 text-xs font-mono transition-colors"
+                    >
+                      <FaGithub size={16} /> Source Code
+                    </a>
+                    <span className="text-[10px] font-mono text-zinc-600">
+                      #{project.id.toString().padStart(2, '0')}
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
           ))}
         </div>
-        
-        <div className="text-center mt-12 hover:scale-105 transition-transform duration-300 ">
-          <a 
-            href="https://github.com/Dismi343/" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="btn bg-primary-light  rounded-lg drop-shadow-xl  hover:shadow-2xl   hover:bg-secondary hover:text-white transition-tranform duration-500"
-          >
-            See More on GitHub
-          </a>
-        </div>
       </div>
     </section>
-    </>
-    
   );
 };
 

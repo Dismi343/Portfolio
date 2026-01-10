@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { FaCode, FaDatabase, FaMobile, FaServer, FaTools, FaLaptopCode } from 'react-icons/fa';
+import { FaCode, FaDatabase, FaServer, FaLaptopCode, FaRocket, FaChevronRight,FaBrain } from 'react-icons/fa';
+// Keep your existing imports as they are
 import Reactlogo from '../assets/skills/react-logo.png';  
 import Mysql from '../assets/skills/Mysql_logo.png';
 import Java from '../assets/skills/java.png';
@@ -12,87 +13,106 @@ import Angular from '../assets/skills/angular.png';
 import Git from '../assets/skills/git.png';
 
 const Skills = () => {
-
-    const [isScrolled, setScrolled] = useState(false);
-   const images=[
-            {id:1, src:`${Reactlogo}`,alt:"react" },
-            {id:2, src:`${Mysql}`,alt:"mysql"},
-            {id:3, src:`${Java}`,alt:"java"},
-            {id:4, src:`${Javascriupt}`,alt:"js"},
-            {id:5, src:`${Typescript}`,alt:"ts"},
-            {id:6, src:`${Php}`,alt:"php"},
-            {id:7, src:`${Nodejs}`,alt:"nodejs"},
-            {id:8, src:`${Mongodb}`,alt:"mdb"},
-            {id:9, src:`${Angular}`,alt:"A"},
-            {id:10, src:`${Git}`,alt:"git"},
-         
-        ];
-
-        const duplicatedImages = [...images];
-
+  const [isScrolled, setScrolled] = useState(false);
+  
+  const images = [
+    {id:1, src:Reactlogo, alt:"react" },
+    {id:2, src:Mysql, alt:"mysql"},
+    {id:3, src:Java, alt:"java"},
+    {id:4, src:Javascriupt, alt:"js"},
+    {id:5, src:Typescript, alt:"ts"},
+    {id:6, src:Php, alt:"php"},
+    {id:7, src:Nodejs, alt:"nodejs"},
+    {id:8, src:Mongodb, alt:"mdb"},
+    {id:9, src:Angular, alt:"A"},
+    {id:10, src:Git, alt:"git"},
+  ];
 
   const skillCategories = [
     {
       _id: 1,
-      title: 'Programming Languages',
-      icon: <FaCode className="text-4xl text-primary-light mb-4" />,
-      skills: ['JavaScript', 'TypeScript', 'Java',  'HTML/CSS']
+      title: 'Languages',
+      icon: <FaCode />,
+      skills: ['JavaScript', 'TypeScript', 'Java', 'Python', 'PHP']
     },
     {
       _id: 2,
-      title: 'Frontend Development',
-      icon: <FaLaptopCode className="text-4xl text-primary-light mb-4" />,
-      skills: ['React',  'Tailwind CSS', 'Bootstrap']
+      title: 'Frontend',
+      icon: <FaLaptopCode />,
+      skills: ['React', 'Next.js', 'Angular', 'Tailwind CSS']
     },
     {
       _id: 3,
-      title: 'Backend Development',
-      icon: <FaServer className="text-4xl text-primary-light mb-4" />,
-      skills: ['Node.js', 'Express']
+      title: 'Backend',
+      icon: <FaServer />,
+      skills: ['Node.js', 'Spring Boot', 'Fast-API', 'RESTful APIs']
     },
     {
       _id: 4,
-      title: 'Database',
-      icon: <FaDatabase className="text-4xl text-primary-light mb-4" />,
-      skills: ['MongoDB', 'MySQL']
+      title: 'AI & Data Engineering', // New specialized category
+      icon: <FaBrain />, // You'll need to import { FaBrain } from 'react-icons/fa'
+      skills: ['LangChain', 'RAG', 'Milvus', 'Gemma (LLM)', 'Embeddings']
     },
-    
+    {
+      _id: 5,
+      title: 'Infrastructure',
+      icon: <FaDatabase />,
+      skills: ['MongoDB', 'MySQL', 'Vector DBs', 'Docker', 'Git']
+    }
   ];
 
-  useEffect(()=>{
-    const HandleScroll = ()=>{
-      const currentScroll = window.pageYOffset;
-      setScrolled(currentScroll > 1900);
+  useEffect(() => {
+    const HandleScroll = () => {
+      setScrolled(window.scrollY > 400); // Adjusted for better trigger timing
     };
-    window.addEventListener('scroll',HandleScroll);
-  })
+    window.addEventListener('scroll', HandleScroll);
+    return () => window.removeEventListener('scroll', HandleScroll);
+  }, []);
 
   return (
+    <section id="skills" className="relative py-24 md:py-32 bg-[#09090b] text-zinc-100 overflow-hidden">
+      {/* Background Decor */}
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-emerald-900/5 rounded-full blur-[120px] pointer-events-none"></div>
 
-    <>
-    <hr className='border-secondary-dark border-2 shadow-2xl  w-full shadow-md'></hr>
-    <section id="skills" className="py-20 bg-dark">
-      <div className="container mx-auto px-4">
-        <h2 className="section-title">
-          <div className='text-white'>
-          My Skills
+      <div className="container mx-auto px-6 lg:px-12 relative z-10">
+        {/* Section Header */}
+        <div className="max-w-4xl mb-16 md:mb-24">
+          <div className="inline-flex items-center gap-3 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 backdrop-blur-md mb-6">
+            <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full"></span>
+            <span className="text-emerald-500 text-xs font-mono uppercase tracking-widest">Stack</span>
           </div>
+          
+          <h2 className="text-5xl md:text-7xl font-bold mb-8 tracking-tight">
+            Technical <span className="text-zinc-500 italic font-light">Expertise</span>
           </h2>
-        <p className="text-white mb-10 max-w-2xl">
-          I've developed a diverse set of skills throughout my academic journey and personal projects. Here's an overview of my technical expertise:
-        </p>
-        
-        <div className={`overflow-x-hidden grid grid-rows-2 md:grid-rows-2 lg:grid-cols-2  gap-8 transition-transform duration-1000 `}>
-          {skillCategories.map((category, index) => (
-            <div key={category._id} className={`bg-secondary p-6 rounded-lg shadow-lg transform transition-all duration-700 ${isScrolled ? index %2 ===0?'transform translate-x-0 opacity-100':'transform translate-x-0 opacity-100' : index %2 ===0?'transform -translate-x-full opacity-0':'transform translate-x-full opacity-0'} `} >
-              <div className="text-center mb-4  md:flex-col items-center justify-center gap-2 md:relative  ">
-                <div className="md:absolute left-0 flex justify-center">{category.icon}</div>
-                <h3 className="text-xl font-semibold text-dark mx-auto text-white text-shadow-lg/30 ">{category.title}</h3>
+          <p className="text-xl text-zinc-400 max-w-2xl leading-relaxed">
+            I've developed expertise across a diverse range of technologies, 
+            focusing on performance, scalability, and maintainable code.
+          </p>
+        </div>
+
+        {/* Skills Categories Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-24">
+          {skillCategories.map((category) => (
+            <div 
+              key={category._id} 
+              className="group relative p-8 rounded-2xl bg-zinc-900/30 border border-zinc-800/50 hover:border-emerald-500/30 transition-all duration-500"
+            >
+              <div className="flex items-start justify-between mb-8">
+                <div className="p-4 rounded-xl bg-zinc-800 text-emerald-500 text-2xl group-hover:bg-emerald-500 group-hover:text-zinc-950 transition-all duration-300">
+                  {category.icon}
+                </div>
+                <span className="text-zinc-700 font-mono text-xl group-hover:text-emerald-500/20 transition-colors">0{category._id}</span>
               </div>
 
-              <div className="flex flex-wrap mt-10 justify-center">
+              <h3 className="text-2xl font-bold text-zinc-100 mb-6">{category.title}</h3>
+              
+              <div className="flex flex-wrap gap-2">
                 {category.skills.map((skill) => (
-                  <span key={skill} className="p-4 bg-primary hover: m-2 rounded-full h-10 flex items-center justify-center shadow-lg shadow-dark-dark">
+                  <span 
+                    key={skill} 
+                    className="px-3 py-1.5 text-xs font-mono rounded-md bg-zinc-950 text-zinc-400 border border-zinc-800 group-hover:border-zinc-700 transition-all"
+                  >
                     {skill}
                   </span>
                 ))}
@@ -100,50 +120,65 @@ const Skills = () => {
             </div>
           ))}
         </div>
-        
-        <div className="mt-16">
-          <h3 className="text-2xl font-semibold mb-6 text-primary-light">My Learning Journey</h3>
-          <div className="bg-dark p-6 rounded-lg shadow-sm">
-            <p className="text-white mb-4">
-              I believe in continuous learning and staying updated with the latest technologies. Currently, I'm focusing on:
-            </p>
-            <ul className="list-disc list-inside text-white space-y-2">
-              <li>Exploring cloud architecture with AWS</li>
-              <li>Exploring machine learning and AI concepts</li>
-              <li>Improving my skills in system design and scalability</li>
-            </ul>
+
+        {/* Scrolling Tech Marquee */}
+        <div className="mb-32">
+          <h3 className="text-sm font-mono text-emerald-500 uppercase tracking-[0.2em] mb-12 flex items-center gap-3">
+            <FaRocket /> Core Technologies
+          </h3>
+          
+          <div className="flex gap-8 overflow-hidden group">
+            <div className="flex gap-8 animate-scroll whitespace-nowrap py-4">
+              {/* Double the array for seamless infinite scroll */}
+              {[...images, ...images].map((image, idx) => (
+                <div
+                  key={`${image.id}-${idx}`}
+                  className="w-20 h-20 md:w-28 md:h-28 grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-500 p-4 bg-zinc-900/50 rounded-2xl border border-zinc-800 flex items-center justify-center"
+                >
+                  <img 
+                    src={image.src} 
+                    alt={image.alt} 
+                    className="max-w-full max-h-full object-contain"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Learning Journey - Refined Card */}
+        <div className="p-8 md:p-12 rounded-3xl bg-zinc-900/20 border border-zinc-800 relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-500/5 blur-[80px]"></div>
+          
+          <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h3 className="text-3xl font-bold mb-6 flex items-center gap-4">
+                <span className="w-8 h-[1px] bg-emerald-500"></span>
+                Learning Journey
+              </h3>
+              <p className="text-zinc-400 text-lg leading-relaxed mb-4">
+                I believe in continuous learning and staying updated with the latest technologies. 
+                Currently, I'm deepening my knowledge in:
+              </p>
+            </div>
+            
+            <div className="grid grid-cols-1 gap-4">
+              {[
+                'Exploring cloud architecture with AWS',
+                'Exploring machine learning and AI concepts',
+                'Improving skills in system design and scalability',
+                'Contributing to open source projects'
+              ].map((item, index) => (
+                <div key={index} className="flex items-center gap-4 group">
+                  <FaChevronRight className="text-emerald-500 text-xs group-hover:translate-x-1 transition-transform" />
+                  <span className="text-zinc-300 group-hover:text-white transition-colors">{item}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
-
-         <div className={`mt-8 relative w-full overflow-hidden bg-transparent py-4 flex`}>
-            <div className="relative flex gap-1">
-                <div className="flex  animate-scroll  ">
-                    {duplicatedImages.map(image => (
-                    <div
-                    key={image.id}
-                    className={`
-                        flex-shrink-0  md:w-80 w-20  overflow-hidden rounded-lg 
-                    `}
-                    >
-                    <div key={image.id} className="overflow-hidden rounded-lg lg:w-40 lg:h-40 w-10 h-10 md:w-20 md:h-20">
-                        <img 
-                        key={image.id}
-                        src={image.src} 
-                        alt={image.alt} 
-                        className="w-full h-full object-cover "
-                        loading="lazy"
-                        />
-              </div>
-            </div>
-
-                ) )}
-                </div>
-            </div> 
-      </div>
     </section>
-    </>
-    
   );
 };
 
