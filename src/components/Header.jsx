@@ -1,176 +1,116 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-scroll';
+import { FaCode, FaTerminal } from 'react-icons/fa';
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  
-  const [isOpen,setIsOpen] = useState(false);
-
-  useEffect(()=>{
-    const textVisible=setTimeout(()=>{
-      setIsOpen(true);
-      return textVisible;
-    },);
-  },[]);
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
-    
+    setIsOpen(true);
     const handleScroll = () => {
-
-      if (window.scrollY > 500) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
+      setIsScrolled(window.scrollY > 50);
     };
-
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-
+  const navLinks = [
+    { to: 'hero', label: 'Home' },
+    { to: 'about', label: 'About' },
+    { to: 'projects', label: 'Projects' },
+    { to: 'skills', label: 'Skills' },
+    { to: 'contact', label: 'Contact' }
+  ];
 
   return (
     <header 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-1000  ${
-        isScrolled ? 'bg-transparent py-2  ' : 'bg-transparent py-4  '
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        isScrolled 
+          ? 'py-4 backdrop-blur-xl bg-zinc-950/80 border-b border-zinc-800/50 shadow-2xl' 
+          : 'py-8 bg-transparent'
       }`}
     >
-      <div className=" container mx-auto mt-5 px-4 md:flex justify-evenly  items-center  md:border-4 border-primary-light rounded-full max-w-screen-md md:bg-white/75 md:shadow-2xl shadow-white/25 ">
-      
+      <div className="container mx-auto px-6 lg:px-12">
+        <div className="flex justify-between items-center">
+          {/* Logo */}
+          <Link 
+            to="hero"
+            smooth={true}
+            duration={500}
+            className="flex items-center gap-3 cursor-pointer group"
+          >
+           
+            <div className="flex flex-col leading-none">
+             
+              <span className="text-[10px] font-mono text-emerald-500 uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">Dev</span>
+            </div>
+          </Link>
 
-        {/* Mobile menu button */}
-        <button 
-          className="md:hidden text-white  focus:outline-none "
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-        >
-           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            {isMenuOpen ? (
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-            ) : (
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-            )}
-          </svg>
-        </button>
+          {/* Desktop Navigation */}
+          <nav className={`hidden md:flex items-center gap-2 transition-all duration-700 ${isOpen ? 'translate-y-0 opacity-100' : 'translate-y-5 opacity-0'}`}>
+            {navLinks.map((link) => (
+              <Link 
+                key={link.to}
+                activeClass="!text-emerald-400 !bg-emerald-500/5"
+                to={link.to}
+                spy={true} 
+                smooth={true} 
+                duration={500}
+                offset={-80}
+                className="text-zinc-400 hover:text-zinc-100 text-sm font-medium px-4 py-2 rounded-full transition-all duration-300 cursor-pointer relative"
+              >
+                {link.label}
+              </Link>
+            ))}
+            
+            {/* Terminal CTA Style Link */}
+            <Link
+              to="contact"
+              smooth={true}
+              className="ml-4 px-5 py-2 bg-emerald-500 text-zinc-950 text-xs font-bold rounded-full hover:bg-emerald-400 transition-colors cursor-pointer flex items-center gap-2"
+            >
+              
+              HIRE ME
+            </Link>
+          </nav>
 
-        {/* Desktop navigation */}
-        <nav className={`hidden md:flex transform transition-all duration-1000 delay-200 ${isOpen ? 'translate-y-0 opacity-100' :  ' translate-y-10 opacity-0'}`}>
-          <Link 
-            activeClass="active"
-            to="hero" 
-            spy={true} 
-            smooth={true} 
-            duration={500}
-            className="nav-link cursor-pointer"
+          {/* Mobile menu button */}
+          <button 
+            className="md:hidden text-zinc-100 p-2 focus:outline-none"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
-            Home
-          </Link>
-          <Link 
-            activeClass="active"
-            to="about" 
-            spy={true} 
-            smooth={true} 
-            duration={500}
-            className="nav-link  cursor-pointer"
-          >
-            About
-          </Link>
-          <Link 
-            activeClass="active"
-            to="projects" 
-            spy={true} 
-            smooth={true} 
-            duration={500}
-            className="nav-link cursor-pointer"
-          >
-            Projects
-          </Link>
-          <Link 
-            activeClass="active"
-            to="skills" 
-            spy={true} 
-            smooth={true} 
-            duration={500}
-            className="nav-link cursor-pointer"
-          >
-            Skills
-          </Link>
-          <Link 
-            activeClass="active"
-            to="contact" 
-            spy={true} 
-            smooth={true} 
-            duration={500}
-            className="nav-link cursor-pointer"
-          >
-            Contact
-          </Link>
-        </nav>
-      </div>
+            <div className="w-6 flex flex-col items-end gap-1.5">
+              <span className={`h-0.5 bg-emerald-500 transition-all duration-300 ${isMenuOpen ? 'w-6 translate-y-2 rotate-45' : 'w-6'}`}></span>
+              <span className={`h-0.5 bg-emerald-500 transition-all duration-300 ${isMenuOpen ? 'opacity-0' : 'w-4'}`}></span>
+              <span className={`h-0.5 bg-emerald-500 transition-all duration-300 ${isMenuOpen ? 'w-6 -translate-y-2 -rotate-45' : 'w-5'}`}></span>
+            </div>
+          </button>
+        </div>
 
-      {/* Mobile menu */}
-      {isMenuOpen && (
-        <div className="md:hidden bg-white shadow-lg">
-          <div className="container mx-auto px-4 py-2 flex flex-col">
-            <Link 
-              activeClass="active"
-              to="hero" 
-              spy={true} 
-              smooth={true} 
-              duration={500}
-              className="nav-link py-3 border-b border-gray-100 text-black"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Home
-            </Link>
-            <Link 
-              activeClass="active"
-              to="about" 
-              spy={true} 
-              smooth={true} 
-              duration={500}
-              className="nav-link py-3 border-b border-gray-100"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              About
-            </Link>
-            <Link 
-              activeClass="active"
-              to="projects" 
-              spy={true} 
-              smooth={true} 
-              duration={500}
-              className="nav-link py-3 border-b border-gray-100"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Projects
-            </Link>
-            <Link 
-              activeClass="active"
-              to="skills" 
-              spy={true} 
-              smooth={true} 
-              duration={500}
-              className="nav-link py-3 border-b border-gray-100"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Skills
-            </Link>
-            <Link 
-              activeClass="active"
-              to="contact" 
-              spy={true} 
-              smooth={true} 
-              duration={500}
-              className="nav-link py-3"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Contact
-            </Link>
+        {/* Mobile menu */}
+        <div className={`md:hidden absolute top-full left-0 right-0 mt-4 mx-6 transition-all duration-500 transform ${isMenuOpen ? 'translate-y-0 opacity-100 visible' : '-translate-y-10 opacity-0 invisible'}`}>
+          <div className="bg-zinc-900 border border-zinc-800 rounded-2xl p-4 shadow-2xl backdrop-blur-2xl">
+            <nav className="flex flex-col gap-1">
+              {navLinks.map((link) => (
+                <Link 
+                  key={link.to}
+                  to={link.to}
+                  spy={true} 
+                  smooth={true} 
+                  duration={500}
+                  offset={-80}
+                  className="text-zinc-400 hover:text-emerald-400 hover:bg-emerald-500/5 px-4 py-3 rounded-xl text-sm font-medium transition-all"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </nav>
           </div>
         </div>
-      )}
+      </div>
     </header>
   );
 };
