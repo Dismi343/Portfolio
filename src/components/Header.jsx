@@ -20,6 +20,7 @@ const Header = () => {
     { to: 'hero', label: 'Home' },
     { to: 'about', label: 'About' },
     { to: 'projects', label: 'Projects' },
+    { to: 'articles', label: 'Articles' },
     { to: 'skills', label: 'Skills' },
     { to: 'contact', label: 'Contact' }
   ];

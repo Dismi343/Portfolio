@@ -46,7 +46,7 @@ const About = () => {
                   
                   <div className="space-y-2">
                     <h4 className="text-2xl font-bold text-zinc-100 group-hover:text-emerald-400 transition-colors">
-                      BSc in Computer Science
+                      BSc(Hons) in Computer Science
                     </h4>
                     <div className="flex items-center gap-4 text-zinc-500 font-mono text-sm">
                       <span>University of Ruhuna</span>
@@ -71,7 +71,7 @@ const About = () => {
                     <div className="flex items-center gap-4 text-zinc-500 font-mono text-sm">
                       <span>Developerstack (Diploma)</span>
                       <span className="w-1 h-1 bg-zinc-700 rounded-full"></span>
-                      <span>2025 - Present</span>
+                      <span>2025-May - 2026-April</span>
                     </div>
                   </div>
                 </div>
@@ -89,10 +89,10 @@ const About = () => {
               
               <div className="grid gap-3">
                 {[
-                  'Learning Python (LinkedIn)',
-                  'HTML Essential Training (LinkedIn)',
+                  'python programming(2)-Ecertificate program (University of Moratuwa)',
+                  'Manager - Outgoing Global Volunteer (OGV CXP) - Aiesec Univeristy of Ruhuna(2023-2025)',
                   'Participation in Road to Insergex 1.0 Hackathon',
-                  'Full-Stack Developer Program (In Progress)'
+                  'Full-Stack Developer Program (Developerstack)',
                 ].map((cert, index) => (
                   <div 
                     key={index}
