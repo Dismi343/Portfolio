@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { FaEnvelope, FaGithub, FaLinkedin, FaPhone, FaPaperPlane } from 'react-icons/fa';
+import { FaEnvelope, FaGithub, FaLinkedin, FaPhone, FaPaperPlane,FaMediumM } from 'react-icons/fa';
 import emailJs from '@emailjs/browser';
 
 const Contact = () => {
@@ -41,6 +41,7 @@ const Contact = () => {
     { icon: <FaPhone />, title: 'Call', value: '+94 76 749 2276', link: 'tel:+94767492276' },
     { icon: <FaEnvelope />, title: 'Email', value: 'yushanhettiarachchi639@gmail.com', link: 'mailto:yushanhettiarachchi639@gmail.com' },
     { icon: <FaGithub />, title: 'GitHub', value: '@Dismi343', link: 'https://github.com/Dismi343' },
+    { icon: <FaMediumM />, title: 'Medium', value: '@YushanDismitha', link: 'https://medium.com/@yushanhettiarachchi639' },
     { icon: <FaLinkedin />, title: 'LinkedIn', value: 'Yushan Dismitha', link: 'https://www.linkedin.com/in/yushan-dismitha-988b101bb/' }
   ];
 

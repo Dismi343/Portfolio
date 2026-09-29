@@ -7,17 +7,78 @@ import rag from '../assets/RAG-PDF.png';
 import RIUSS from '../assets/RIUSS.png';
 import cragvi from '../assets/video.mp4';
 import smarttask from '../assets/smart_task.jpeg';
-
+import ThaksalawaAI from '../assets/Thaksalawa-AI.png';
 const Projects = () => {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     setIsVisible(true);
   }, []);
-
+  const [expandedProjectId, setExpandedProjectId] = useState(null);
   const projects = [
-    {
+      {
       id: 1,
+      title: 'Thaksalawa-AI',
+      description: 'Developed an AI-powered Learning Management System using Python, FastAPI, and RAG for intelligent question answering over educational materials. As a backend developer, I implemented PDF processing, text chunking, embedding generation, semantic search using Milvus/Zilliz, and user authentication, while integrating OpenAI GPT-4o mini for AI-powered learning features.',
+      technologies: ['Python', 'RAG', 'Milvus', 'React', 'FastAPI', 'OpenAI GPT-4o mini'],
+      image: ThaksalawaAI,
+      github: 'https://github.com/Dismi343/Thaksalawa-AI',
+      link: "#",
+      isLive: false
+    },
+     {
+      id: 2,
+      title: 'RIUSS-2025',
+      description: 'As the Frontend Developer for the Ruhuna International Undergraduate Science Symposium (RIUSS 2025), I designed and implemented a professional academic platform for the University of Ruhuna. I focused on creating a high-performance, responsive interface that serves as the central information hub for global researchers and students. The project required rigorous attention to detail—ensuring accessibility across all devices, managing complex scheduling layouts, and maintaining a visual identity aligned with university standards.',
+      technologies: ['React', 'Node.js', 'Express', 'MongoDB'],
+      image: RIUSS,
+      github: '#',
+      link: "https://www.sci.ruh.ac.lk/conference/RIUSS2025/",
+      isLive: true
+    }
+  ,
+     {
+      id: 3,
+      title: 'CRAG-Corrective Retrieval-Augmented Generation',
+      description: 'A cutting-edge AI research project that integrates retrieval-augmented generation with corrective feedback loops. This system is designed to enhance the accuracy and relevance of generated content by leveraging a multi-stage retrieval process.',
+      technologies: ['React', 'Node.js', 'Express', 'MongoDB'],
+      image: RIUSS,
+      video: cragvi,
+      github: '#',
+      link: "https://github.com/Dismi343/CRAG_implementation",
+      isLive: false
+    },  {
+      id: 4,
+      title: 'Smart-Task',
+      description: 'Task management application with real-time collaboration features, including task assignment, progress tracking, and deadline notifications.',
+      technologies: ['React', 'Spring Boot', 'FastAPI', 'Python', 'MySQL', 'Hugging Face API', 'Google SMTP'],
+      image: smarttask,
+      github: '#',
+      link: "https://github.com/Dismi343/SmartTask",
+      isLive: false
+    },
+    {
+      id: 5,
+      title: 'Infocur site - Event Booking & Progress Tracking Platform',
+      subtitle: '(Group Project)',
+      description: 'As the lead backend developer, I architected a robust event management system using Spring Boot and MongoDB. I designed a structured database schema that automates the transition from client bookings to post-production workflows. A key feature is the automated progress-tracking engine that synchronizes event statuses and media deliverables. I implemented complex business logic including custom DTO handling, service-layer abstraction, and a recursive cascade deletion system to ensure 100% data consistency across sessions and bookings.',
+      technologies: ['React', 'Spring-Boot', 'Rest-API', 'MongoDB'],
+      image: infocur,
+      github: 'https://github.com/Dismi343/Infocur-site',
+      link: "https://infocur-site.vercel.app/",
+      isLive: true
+    }, {
+      id: 6,
+      title: 'Weather-App',
+      description: 'A full-stack application leveraging Flask microservices and React. Handles dynamic API data fetching and conditional UI rendering based on real-time weather codes.',
+      technologies: ['Python', 'React', 'Flask', 'OpenWeatherMap'],
+      image: psw,
+      github: 'https://github.com/Dismi343/Weather-app',
+      link: "https://weather-app-frontend-xmff.onrender.com/",
+      isLive: true
+    },  
+    {
+      id: 7,
       title: 'AI Chat-Bot (RAG Architecture)',
       description: 'A sophisticated document intelligence tool using Gemma and Milvus to perform semantic search on uploaded PDFs. Features a custom pipeline for text chunking and real-time context injection.',
       technologies: ['Python', 'RAG', 'Milvus', 'Next.js'],
@@ -27,59 +88,7 @@ const Projects = () => {
       isLive: false
     },
      {
-      id: 2,
-      title: 'CRAG-Corrective Retrieval-Augmented Generation',
-      description: 'A cutting-edge AI research project that integrates retrieval-augmented generation with corrective feedback loops. This system is designed to enhance the accuracy and relevance of generated content by leveraging a multi-stage retrieval process.',
-      technologies: ['React', 'Node.js', 'Express', 'MongoDB'],
-      image: RIUSS,
-      video: cragvi,
-      github: '#',
-      link: "https://github.com/Dismi343/CRAG_implementation",
-      isLive: false
-    },
-    {
-      id: 3,
-      title: 'Weather-App',
-      description: 'A full-stack application leveraging Flask microservices and React. Handles dynamic API data fetching and conditional UI rendering based on real-time weather codes.',
-      technologies: ['Python', 'React', 'Flask', 'OpenWeatherMap'],
-      image: psw,
-      github: 'https://github.com/Dismi343/Weather-app',
-      link: "https://weather-app-frontend-xmff.onrender.com/",
-      isLive: true
-    },
-    {
-      id: 4,
-      title: 'Infocur site - Event Booking & Progress Tracking Platform',
-      subtitle: '(Group Project)',
-      description: 'As the lead backend developer, I architected a robust event management system using Spring Boot and MongoDB. I designed a structured database schema that automates the transition from client bookings to post-production workflows. A key feature is the automated progress-tracking engine that synchronizes event statuses and media deliverables. I implemented complex business logic including custom DTO handling, service-layer abstraction, and a recursive cascade deletion system to ensure 100% data consistency across sessions and bookings.',
-      technologies: ['React', 'Spring-Boot', 'Rest-API', 'MongoDB'],
-      image: infocur,
-      github: 'https://github.com/Dismi343/Infocur-site',
-      link: "https://infocur-site.vercel.app/",
-      isLive: true
-    },
-    {
-      id: 5,
-      title: 'Smart-Task',
-      description: 'Task management application with real-time collaboration features, including task assignment, progress tracking, and deadline notifications.',
-      technologies: ['React', 'Spring Boot', 'FastAPI', 'Python', 'MySQL', 'Hugging Face API', 'Google SMTP'],
-      image: smarttask,
-      github: '#',
-      link: "https://github.com/Dismi343/SmartTask",
-      isLive: false
-    },
-     {
-      id: 6,
-      title: 'RIUSS-2025',
-      description: 'As the Frontend Developer for the Ruhuna International Undergraduate Science Symposium (RIUSS 2025), I designed and implemented a professional academic platform for the University of Ruhuna. I focused on creating a high-performance, responsive interface that serves as the central information hub for global researchers and students. The project required rigorous attention to detail—ensuring accessibility across all devices, managing complex scheduling layouts, and maintaining a visual identity aligned with university standards.',
-      technologies: ['React', 'Node.js', 'Express', 'MongoDB'],
-      image: RIUSS,
-      github: '#',
-      link: "https://www.sci.ruh.ac.lk/conference/RIUSS2025/",
-      isLive: true
-    },
-     {
-      id: 7,
+      id: 8,
       title: 'E-commerce Platform',
       description: 'A full-stack e-commerce application featuring a robust admin dashboard, secure checkout, and real-time inventory tracking.',
       technologies: ['React', 'Node.js', 'Express', 'MongoDB'],
@@ -138,7 +147,7 @@ const Projects = () => {
                 )}
 
                 <div className="absolute bottom-4 left-4 flex flex-wrap gap-2">
-                  {project.technologies.slice(0, 3).map((tech, i) => (
+                  {project.technologies.slice(0, 5).map((tech, i) => (
                     <span key={i} className="px-2 py-1 text-[10px] font-mono bg-zinc-950/90 text-zinc-400 border border-zinc-800 rounded">
                       {tech}
                     </span>
@@ -158,8 +167,26 @@ const Projects = () => {
                     </p>
                   )}
                 </div>
-                <p className="text-zinc-400 text-sm leading-relaxed mb-8 line-clamp-3">
-                  {project.description}
+               <p className="text-zinc-400 text-sm leading-relaxed mb-8">
+                  {expandedProjectId === project.id
+                    ? project.description
+                    : project.description.length > 180
+                      ? `${project.description.slice(0, 180).trimEnd()}... `
+                      : project.description}
+
+                  {project.description.length > 180 && (
+                    <button
+                      type="button"
+                      onClick={() =>
+                        setExpandedProjectId(
+                          expandedProjectId === project.id ? null : project.id
+                        )
+                      }
+                      className="text-emerald-400 hover:text-emerald-300 font-semibold"
+                    >
+                      {expandedProjectId === project.id ? ' less' : 'more'}
+                    </button>
+                  )}
                 </p>
 
                 {/* Primary Action Button for Live Apps */}
