@@ -70,22 +70,22 @@ const Skills = () => {
   }, []);
 
   return (
-    <section id="skills" className="relative py-24 md:py-32 bg-[#09090b] text-zinc-100 overflow-hidden">
+    <section id="skills" className="relative py-24 md:py-32 bg-slate-50 dark:bg-[#09090b] text-slate-800 dark:text-zinc-100 overflow-hidden transition-colors duration-500">
       {/* Background Decor */}
-      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-emerald-900/5 rounded-full blur-[120px] pointer-events-none"></div>
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-emerald-500/5 dark:bg-emerald-900/5 rounded-full blur-[120px] pointer-events-none"></div>
 
       <div className="container mx-auto px-6 lg:px-12 relative z-10">
         {/* Section Header */}
         <div className="max-w-4xl mb-16 md:mb-24">
           <div className="inline-flex items-center gap-3 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 backdrop-blur-md mb-6">
             <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full"></span>
-            <span className="text-emerald-500 text-xs font-mono uppercase tracking-widest">Stack</span>
+            <span className="text-emerald-600 dark:text-emerald-500 text-xs font-mono uppercase tracking-widest">Stack</span>
           </div>
           
-          <h2 className="text-5xl md:text-7xl font-bold mb-8 tracking-tight">
-            Technical <span className="text-zinc-500 italic font-light">Expertise</span>
+          <h2 className="text-5xl md:text-7xl font-bold mb-8 tracking-tight text-slate-900 dark:text-zinc-100">
+            Technical <span className="text-slate-400 dark:text-zinc-500 italic font-light">Expertise</span>
           </h2>
-          <p className="text-xl text-zinc-400 max-w-2xl leading-relaxed">
+          <p className="text-xl text-slate-600 dark:text-zinc-400 max-w-2xl leading-relaxed">
             I've developed expertise across a diverse range of technologies, 
             focusing on performance, scalability, and maintainable code.
           </p>
@@ -96,22 +96,22 @@ const Skills = () => {
           {skillCategories.map((category) => (
             <div 
               key={category._id} 
-              className="group relative p-8 rounded-2xl bg-zinc-900/30 border border-zinc-800/50 hover:border-emerald-500/30 transition-all duration-500"
+              className="group relative p-8 rounded-2xl bg-white dark:bg-zinc-900/30 border border-slate-200 dark:border-zinc-800/50 hover:border-emerald-500/40 dark:hover:border-emerald-500/30 transition-all duration-500 shadow-md hover:shadow-xl dark:shadow-none"
             >
               <div className="flex items-start justify-between mb-8">
-                <div className="p-4 rounded-xl bg-zinc-800 text-emerald-500 text-2xl group-hover:bg-emerald-500 group-hover:text-zinc-950 transition-all duration-300">
+                <div className="p-4 rounded-xl bg-slate-100 dark:bg-zinc-800 text-emerald-600 dark:text-emerald-500 text-2xl group-hover:bg-emerald-500 group-hover:text-zinc-950 transition-all duration-300">
                   {category.icon}
                 </div>
-                <span className="text-zinc-700 font-mono text-xl group-hover:text-emerald-500/20 transition-colors">0{category._id}</span>
+                <span className="text-slate-300 dark:text-zinc-700 font-mono text-xl group-hover:text-emerald-500/40 dark:group-hover:text-emerald-500/20 transition-colors">0{category._id}</span>
               </div>
 
-              <h3 className="text-2xl font-bold text-zinc-100 mb-6">{category.title}</h3>
+              <h3 className="text-2xl font-bold text-slate-900 dark:text-zinc-100 mb-6">{category.title}</h3>
               
               <div className="flex flex-wrap gap-2">
                 {category.skills.map((skill) => (
                   <span 
                     key={skill} 
-                    className="px-3 py-1.5 text-xs font-mono rounded-md bg-zinc-950 text-zinc-400 border border-zinc-800 group-hover:border-zinc-700 transition-all"
+                    className="px-3 py-1.5 text-xs font-mono rounded-md bg-slate-100 dark:bg-zinc-950 text-slate-700 dark:text-zinc-400 border border-slate-200 dark:border-zinc-800 group-hover:border-slate-300 dark:group-hover:border-zinc-700 transition-all"
                   >
                     {skill}
                   </span>
@@ -123,7 +123,7 @@ const Skills = () => {
 
         {/* Scrolling Tech Marquee */}
         <div className="mb-32">
-          <h3 className="text-sm font-mono text-emerald-500 uppercase tracking-[0.2em] mb-12 flex items-center gap-3">
+          <h3 className="text-sm font-mono text-emerald-600 dark:text-emerald-500 uppercase tracking-[0.2em] mb-12 flex items-center gap-3">
             <FaRocket /> Core Technologies
           </h3>
           
@@ -133,7 +133,7 @@ const Skills = () => {
               {[...images, ...images].map((image, idx) => (
                 <div
                   key={`${image.id}-${idx}`}
-                  className="w-20 h-20 md:w-28 md:h-28 grayscale opacity-40 hover:grayscale-0 hover:opacity-100 transition-all duration-500 p-4 bg-zinc-900/50 rounded-2xl border border-zinc-800 flex items-center justify-center"
+                  className="w-20 h-20 md:w-28 md:h-28 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-500 p-4 bg-white dark:bg-zinc-900/50 rounded-2xl border border-slate-200 dark:border-zinc-800 flex items-center justify-center shadow-sm dark:shadow-none"
                 >
                   <img 
                     src={image.src} 
@@ -147,16 +147,16 @@ const Skills = () => {
         </div>
 
         {/* Learning Journey - Refined Card */}
-        <div className="p-8 md:p-12 rounded-3xl bg-zinc-900/20 border border-zinc-800 relative overflow-hidden">
+        <div className="p-8 md:p-12 rounded-3xl bg-white dark:bg-zinc-900/20 border border-slate-200 dark:border-zinc-800 relative overflow-hidden shadow-lg dark:shadow-none">
           <div className="absolute top-0 right-0 w-64 h-64 bg-emerald-500/5 blur-[80px]"></div>
           
           <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h3 className="text-3xl font-bold mb-6 flex items-center gap-4">
+              <h3 className="text-3xl font-bold mb-6 flex items-center gap-4 text-slate-900 dark:text-zinc-100">
                 <span className="w-8 h-[1px] bg-emerald-500"></span>
                 Learning Journey
               </h3>
-              <p className="text-zinc-400 text-lg leading-relaxed mb-4">
+              <p className="text-slate-600 dark:text-zinc-400 text-lg leading-relaxed mb-4">
                 I believe in continuous learning and staying updated with the latest technologies. 
                 Currently, I'm deepening my knowledge in:
               </p>
@@ -171,7 +171,7 @@ const Skills = () => {
               ].map((item, index) => (
                 <div key={index} className="flex items-center gap-4 group">
                   <FaChevronRight className="text-emerald-500 text-xs group-hover:translate-x-1 transition-transform" />
-                  <span className="text-zinc-300 group-hover:text-white transition-colors">{item}</span>
+                  <span className="text-slate-700 dark:text-zinc-300 group-hover:text-slate-950 dark:group-hover:text-white transition-colors">{item}</span>
                 </div>
               ))}
             </div>

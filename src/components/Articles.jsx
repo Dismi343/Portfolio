@@ -24,19 +24,19 @@ const Articles = () => {
   return (
     <section
       id="articles"
-      className="relative py-24 md:py-32 bg-[#09090b] text-zinc-100"
+      className="relative py-24 md:py-32 bg-white dark:bg-[#09090b] text-slate-800 dark:text-zinc-100 transition-colors duration-500"
     >
       <div className="container mx-auto px-6 lg:px-12">
         <div className="max-w-4xl mb-16">
           <div className="inline-flex items-center gap-3 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 mb-6">
-            <FaMediumM className="text-emerald-500" />
-            <span className="text-emerald-500 text-xs font-mono uppercase tracking-[0.2em]">
+            <FaMediumM className="text-emerald-600 dark:text-emerald-500" />
+            <span className="text-emerald-600 dark:text-emerald-500 text-xs font-mono uppercase tracking-[0.2em]">
               Technical Writing
             </span>
           </div>
 
-          <h2 className="text-5xl md:text-7xl font-bold tracking-tight">
-            Medium <span className="text-zinc-500 italic font-light">Articles</span>
+          <h2 className="text-5xl md:text-7xl font-bold tracking-tight text-slate-900 dark:text-zinc-100">
+            Medium <span className="text-slate-400 dark:text-zinc-500 italic font-light">Articles</span>
           </h2>
         </div>
 
@@ -44,23 +44,23 @@ const Articles = () => {
           {articles.map((article) => (
             <article
               key={article.id}
-              className="group flex flex-col p-8 bg-zinc-900/40 border border-zinc-800/50 rounded-2xl hover:border-emerald-500/30 transition-all duration-500"
+              className="group flex flex-col p-8 bg-slate-50 dark:bg-zinc-900/40 border border-slate-200 dark:border-zinc-800/50 rounded-2xl hover:border-emerald-500/40 dark:hover:border-emerald-500/30 hover:shadow-xl transition-all duration-500 shadow-sm dark:shadow-none"
             >
               <div className="flex items-center justify-between mb-8">
-                <div className="w-12 h-12 flex items-center justify-center rounded-xl bg-zinc-800 text-emerald-500">
+                <div className="w-12 h-12 flex items-center justify-center rounded-xl bg-slate-200 dark:bg-zinc-800 text-emerald-600 dark:text-emerald-500">
                   <FaMediumM size={22} />
                 </div>
 
-                <span className="text-xs font-mono text-zinc-600">
+                <span className="text-xs font-mono text-slate-500 dark:text-zinc-600">
                   {article.date}
                 </span>
               </div>
 
-              <h3 className="text-xl font-bold text-zinc-100 group-hover:text-emerald-400 transition-colors mb-4">
+              <h3 className="text-xl font-bold text-slate-900 dark:text-zinc-100 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors mb-4">
                 {article.title}
               </h3>
 
-              <p className="text-zinc-400 text-sm leading-relaxed mb-8">
+              <p className="text-slate-600 dark:text-zinc-400 text-sm leading-relaxed mb-8">
                 {article.description}
               </p>
 
@@ -68,7 +68,7 @@ const Articles = () => {
                 href={article.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-auto w-full py-3 rounded-xl bg-emerald-500 text-zinc-950 font-bold text-xs uppercase tracking-widest flex items-center justify-center gap-2 hover:bg-emerald-400 transition-all"
+                className="mt-auto w-full py-3 rounded-xl bg-emerald-500 text-zinc-950 font-bold text-xs uppercase tracking-widest flex items-center justify-center gap-2 hover:bg-emerald-400 transition-all shadow-md hover:shadow-emerald-500/25"
               >
                 Read Article
                 <FaExternalLinkAlt size={10} />
