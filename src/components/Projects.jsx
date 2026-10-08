@@ -101,16 +101,16 @@ const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="relative py-24 md:py-32 bg-[#09090b] text-zinc-100 overflow-hidden">
+    <section id="projects" className="relative py-24 md:py-32 bg-slate-50 dark:bg-[#09090b] text-slate-800 dark:text-zinc-100 overflow-hidden transition-colors duration-500">
       <div className="container mx-auto px-6 lg:px-12 relative z-10">
         {/* Header */}
         <div className="max-w-4xl mb-16 md:mb-24">
           <div className="inline-flex items-center gap-3 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 backdrop-blur-md mb-6">
             <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse"></span>
-            <span className="text-emerald-500 text-xs font-mono uppercase tracking-[0.2em]">Deployment Pipeline</span>
+            <span className="text-emerald-600 dark:text-emerald-500 text-xs font-mono uppercase tracking-[0.2em]">Deployment Pipeline</span>
           </div>
-          <h2 className="text-5xl md:text-7xl font-bold mb-8 tracking-tight">
-            Featured <span className="text-zinc-500 italic font-light">Work</span>
+          <h2 className="text-5xl md:text-7xl font-bold mb-8 tracking-tight text-slate-900 dark:text-zinc-100">
+            Featured <span className="text-slate-400 dark:text-zinc-500 italic font-light">Work</span>
           </h2>
         </div>
 
@@ -119,10 +119,10 @@ const Projects = () => {
           {projects.map((project) => (
             <div 
               key={project.id} 
-              className="group relative flex flex-col bg-zinc-900/40 border border-zinc-800/50 rounded-2xl overflow-hidden hover:border-emerald-500/30 transition-all duration-500 shadow-2xl"
+              className="group relative flex flex-col bg-white dark:bg-zinc-900/40 border border-slate-200 dark:border-zinc-800/50 rounded-2xl overflow-hidden hover:border-emerald-500/40 dark:hover:border-emerald-500/30 transition-all duration-500 shadow-lg hover:shadow-xl dark:shadow-2xl"
             >
               {/* Image Preview */}
-              <div className="relative aspect-video overflow-hidden">
+              <div className="relative aspect-video overflow-hidden bg-slate-100 dark:bg-zinc-950">
                 {project.video?(<video
                   src={project.video}
                   poster={project.image}
@@ -136,7 +136,7 @@ const Projects = () => {
                   alt={project.title} 
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />)}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#09090b] via-[#09090b]/20 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 dark:from-[#09090b] via-transparent to-transparent" />
                 
                 {/* Status Badge for Live Apps */}
                 {project.isLive && (
@@ -148,7 +148,7 @@ const Projects = () => {
 
                 <div className="absolute bottom-4 left-4 flex flex-wrap gap-2">
                   {project.technologies.slice(0, 5).map((tech, i) => (
-                    <span key={i} className="px-2 py-1 text-[10px] font-mono bg-zinc-950/90 text-zinc-400 border border-zinc-800 rounded">
+                    <span key={i} className="px-2 py-1 text-[10px] font-mono bg-white/90 dark:bg-zinc-950/90 text-slate-700 dark:text-zinc-400 border border-slate-200 dark:border-zinc-800 rounded shadow-sm">
                       {tech}
                     </span>
                   ))}
@@ -158,16 +158,16 @@ const Projects = () => {
               {/* Content */}
               <div className="p-8 flex flex-col flex-grow">
                 <div className="mb-3">
-                  <h3 className="text-xl font-bold text-zinc-100 group-hover:text-emerald-400 transition-colors">
+                  <h3 className="text-xl font-bold text-slate-900 dark:text-zinc-100 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
                     {project.title}
                   </h3>
                   {project.subtitle && (
-                    <p className="text-sm text-emerald-500 font-semibold mt-1">
+                    <p className="text-sm text-emerald-600 dark:text-emerald-500 font-semibold mt-1">
                       {project.subtitle}
                     </p>
                   )}
                 </div>
-               <p className="text-zinc-400 text-sm leading-relaxed mb-8">
+               <p className="text-slate-600 dark:text-zinc-400 text-sm leading-relaxed mb-8">
                   {expandedProjectId === project.id
                     ? project.description
                     : project.description.length > 180
@@ -182,7 +182,7 @@ const Projects = () => {
                           expandedProjectId === project.id ? null : project.id
                         )
                       }
-                      className="text-emerald-400 hover:text-emerald-300 font-semibold"
+                      className="text-emerald-600 dark:text-emerald-400 hover:text-emerald-500 dark:hover:text-emerald-300 font-semibold"
                     >
                       {expandedProjectId === project.id ? ' less' : 'more'}
                     </button>
@@ -196,26 +196,27 @@ const Projects = () => {
                       href={project.link} 
                       target="_blank" 
                       rel="noopener noreferrer"
-                      className="w-full py-3 rounded-xl bg-emerald-500 text-zinc-950 font-bold text-xs uppercase tracking-widest flex items-center justify-center gap-2 hover:bg-emerald-400 transition-all"
+                      className="w-full py-3 rounded-xl bg-emerald-500 text-zinc-950 font-bold text-xs uppercase tracking-widest flex items-center justify-center gap-2 hover:bg-emerald-400 transition-all shadow-md hover:shadow-emerald-500/25"
                     >
                       Launch Application <FaExternalLinkAlt size={10} />
                     </a>
                   ) : (
-                    <div className="w-full py-3 rounded-xl bg-zinc-800/50 text-zinc-500 font-bold text-xs uppercase tracking-widest flex items-center justify-center gap-2 cursor-not-allowed border border-zinc-700/30">
+                    <div className="w-full py-3 rounded-xl bg-slate-100 dark:bg-zinc-800/50 text-slate-500 dark:text-zinc-500 font-bold text-xs uppercase tracking-widest flex items-center justify-center gap-2 cursor-not-allowed border border-slate-200 dark:border-zinc-700/30">
                       Local Environment Only
                     </div>
                   )}
 
                   {/* Secondary Links */}
-                  <div className="flex items-center justify-between pt-4 border-t border-zinc-800/50">
+                  <div className="flex items-center justify-between pt-4 border-t border-slate-200 dark:border-zinc-800/50">
                     <a 
                       href={project.github} 
                       target="_blank" 
-                      className="text-zinc-500 hover:text-white flex items-center gap-2 text-xs font-mono transition-colors"
+                      rel="noopener noreferrer"
+                      className="text-slate-500 hover:text-slate-900 dark:text-zinc-500 dark:hover:text-white flex items-center gap-2 text-xs font-mono transition-colors"
                     >
                       <FaGithub size={16} /> Source Code
                     </a>
-                    <span className="text-[10px] font-mono text-zinc-600">
+                    <span className="text-[10px] font-mono text-slate-400 dark:text-zinc-600">
                       #{project.id.toString().padStart(2, '0')}
                     </span>
                   </div>

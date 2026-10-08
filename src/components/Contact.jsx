@@ -46,23 +46,23 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="relative py-24 md:py-32 bg-[#09090b] text-zinc-100 overflow-hidden">
+    <section id="contact" className="relative py-24 md:py-32 bg-white dark:bg-[#09090b] text-slate-800 dark:text-zinc-100 overflow-hidden transition-colors duration-500">
       {/* Background Decor */}
-      <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-emerald-900/5 rounded-full blur-[120px] pointer-events-none"></div>
+      <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-emerald-500/5 dark:bg-emerald-900/5 rounded-full blur-[120px] pointer-events-none"></div>
 
       <div className="container mx-auto px-6 lg:px-12 relative z-10">
         {/* Section Header */}
         <div className="max-w-4xl mb-16 md:mb-24 mx-auto text-center">
           <div className="inline-flex items-center gap-3 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 backdrop-blur-md mb-6">
             <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full"></span>
-            <span className="text-emerald-500 text-xs font-mono uppercase tracking-widest">Connect</span>
+            <span className="text-emerald-600 dark:text-emerald-500 text-xs font-mono uppercase tracking-widest">Connect</span>
           </div>
           
-          <h2 className="text-5xl md:text-7xl font-bold mb-8 tracking-tight">
-            Get In <span className="text-zinc-500 italic font-light">Touch</span>
+          <h2 className="text-5xl md:text-7xl font-bold mb-8 tracking-tight text-slate-900 dark:text-zinc-100">
+            Get In <span className="text-slate-400 dark:text-zinc-500 italic font-light">Touch</span>
           </h2>
-          <p className="text-xl text-zinc-400 max-w-2xl mx-auto leading-relaxed">
-            Have a project in mind or want to discuss my <span className="text-zinc-100">AI Quiz RAG system</span>? 
+          <p className="text-xl text-slate-600 dark:text-zinc-400 max-w-2xl mx-auto leading-relaxed">
+            Have a project in mind or want to discuss my <span className="text-slate-900 dark:text-zinc-100 font-medium">AI Quiz RAG system</span>? 
             Drop a message and let's build something impactful.
           </p>
         </div>
@@ -71,34 +71,34 @@ const Contact = () => {
           {/* Contact Details */}
           <div className="lg:col-span-5 space-y-12">
             <div>
-              <h3 className="text-sm font-mono text-emerald-500 uppercase tracking-[0.2em] mb-10">Contact Info</h3>
+              <h3 className="text-sm font-mono text-emerald-600 dark:text-emerald-500 uppercase tracking-[0.2em] mb-10">Contact Info</h3>
               <div className="grid grid-cols-1 gap-6">
                 {contactInfo.map((info, index) => (
                   <a
                     key={index}
                     href={info.link}
-                    className="flex items-center gap-6 p-5 rounded-2xl bg-zinc-900/30 border border-zinc-800/50 hover:border-emerald-500/30 hover:bg-zinc-800/40 transition-all duration-300 group"
+                    className="flex items-center gap-6 p-5 rounded-2xl bg-slate-50 dark:bg-zinc-900/30 border border-slate-200 dark:border-zinc-800/50 hover:border-emerald-500/40 dark:hover:border-emerald-500/30 hover:bg-slate-100 dark:hover:bg-zinc-800/40 transition-all duration-300 group shadow-sm dark:shadow-none"
                   >
-                    <div className="p-3 rounded-xl bg-zinc-800 text-emerald-500 group-hover:scale-110 transition-transform">
+                    <div className="p-3 rounded-xl bg-slate-200 dark:bg-zinc-800 text-emerald-600 dark:text-emerald-500 group-hover:scale-110 transition-transform">
                       {info.icon}
                     </div>
                     <div>
-                      <p className="text-xs font-mono text-zinc-500 uppercase tracking-wider">{info.title}</p>
-                      <p className="text-zinc-200 font-medium group-hover:text-emerald-400 transition-colors">{info.value}</p>
+                      <p className="text-xs font-mono text-slate-400 dark:text-zinc-500 uppercase tracking-wider">{info.title}</p>
+                      <p className="text-slate-800 dark:text-zinc-200 font-medium group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">{info.value}</p>
                     </div>
                   </a>
                 ))}
               </div>
             </div>
 
-            <div className="pt-8 border-t border-zinc-800/50">
-               <p className="text-zinc-500 text-sm font-mono mb-6 uppercase tracking-widest">Social Ecosystem</p>
+            <div className="pt-8 border-t border-slate-200 dark:border-zinc-800/50">
+               <p className="text-slate-500 dark:text-zinc-500 text-sm font-mono mb-6 uppercase tracking-widest">Social Ecosystem</p>
                <div className="flex gap-4">
                   {[
                     { icon: <FaGithub />, link: 'https://github.com/Dismi343' },
                     { icon: <FaLinkedin />, link: 'https://www.linkedin.com/in/yushan-dismitha-988b101bb/' }
                   ].map((social, i) => (
-                    <a key={i} href={social.link} target="_blank" className="w-12 h-12 flex items-center justify-center rounded-full border border-zinc-800 text-zinc-400 hover:border-emerald-500 hover:text-emerald-500 transition-all duration-300">
+                    <a key={i} href={social.link} target="_blank" rel="noopener noreferrer" className="w-12 h-12 flex items-center justify-center rounded-full border border-slate-200 dark:border-zinc-800 bg-white dark:bg-transparent text-slate-500 dark:text-zinc-400 hover:border-emerald-500 hover:text-emerald-600 dark:hover:text-emerald-500 shadow-sm dark:shadow-none transition-all duration-300">
                       {social.icon}
                     </a>
                   ))}
@@ -110,10 +110,10 @@ const Contact = () => {
           <div className="lg:col-span-7 relative group">
             <div className="absolute -inset-2 bg-emerald-500/5 rounded-[2rem] blur-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             
-            <form ref={form} onSubmit={sendEmail} className="relative p-8 md:p-10 rounded-[2rem] bg-zinc-900/50 border border-zinc-800 backdrop-blur-xl space-y-8">
+            <form ref={form} onSubmit={sendEmail} className="relative p-8 md:p-10 rounded-[2rem] bg-slate-50/80 dark:bg-zinc-900/50 border border-slate-200 dark:border-zinc-800 backdrop-blur-xl space-y-8 shadow-xl dark:shadow-none">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="space-y-2">
-                  <label className="text-xs font-mono text-emerald-500 uppercase ml-1">Full Name</label>
+                  <label className="text-xs font-mono text-emerald-600 dark:text-emerald-500 uppercase ml-1">Full Name</label>
                   <input
                     type="text"
                     name="name"
@@ -121,11 +121,11 @@ const Contact = () => {
                     onChange={handleChange}
                     required
                     placeholder="Enter name"
-                    className="w-full px-5 py-4 rounded-xl bg-zinc-950 text-zinc-100 border border-zinc-800 focus:border-emerald-500/50 outline-none transition-all placeholder:text-zinc-700"
+                    className="w-full px-5 py-4 rounded-xl bg-white dark:bg-zinc-950 text-slate-900 dark:text-zinc-100 border border-slate-200 dark:border-zinc-800 focus:border-emerald-500/50 outline-none transition-all placeholder:text-slate-400 dark:placeholder:text-zinc-700 shadow-sm dark:shadow-none"
                   />
                 </div>
                 <div className="space-y-2">
-                  <label className="text-xs font-mono text-emerald-500 uppercase ml-1">Email Address</label>
+                  <label className="text-xs font-mono text-emerald-600 dark:text-emerald-500 uppercase ml-1">Email Address</label>
                   <input
                     type="email"
                     name="email"
@@ -133,13 +133,13 @@ const Contact = () => {
                     onChange={handleChange}
                     required
                     placeholder="name@company.com"
-                    className="w-full px-5 py-4 rounded-xl bg-zinc-950 text-zinc-100 border border-zinc-800 focus:border-emerald-500/50 outline-none transition-all placeholder:text-zinc-700"
+                    className="w-full px-5 py-4 rounded-xl bg-white dark:bg-zinc-950 text-slate-900 dark:text-zinc-100 border border-slate-200 dark:border-zinc-800 focus:border-emerald-500/50 outline-none transition-all placeholder:text-slate-400 dark:placeholder:text-zinc-700 shadow-sm dark:shadow-none"
                   />
                 </div>
               </div>
 
               <div className="space-y-2">
-                <label className="text-xs font-mono text-emerald-500 uppercase ml-1">Message</label>
+                <label className="text-xs font-mono text-emerald-600 dark:text-emerald-500 uppercase ml-1">Message</label>
                 <textarea
                   name="message"
                   value={formData.message}
@@ -147,14 +147,14 @@ const Contact = () => {
                   required
                   rows="5"
                   placeholder="What are we building?"
-                  className="w-full px-5 py-4 rounded-xl bg-zinc-950 text-zinc-100 border border-zinc-800 focus:border-emerald-500/50 outline-none transition-all resize-none placeholder:text-zinc-700"
+                  className="w-full px-5 py-4 rounded-xl bg-white dark:bg-zinc-950 text-slate-900 dark:text-zinc-100 border border-slate-200 dark:border-zinc-800 focus:border-emerald-500/50 outline-none transition-all resize-none placeholder:text-slate-400 dark:placeholder:text-zinc-700 shadow-sm dark:shadow-none"
                 />
               </div>
 
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="w-full py-5 rounded-xl bg-emerald-500 text-zinc-950 font-bold uppercase tracking-widest flex items-center justify-center gap-3 hover:bg-emerald-400 transition-all disabled:opacity-50 active:scale-[0.98]"
+                className="w-full py-5 rounded-xl bg-emerald-500 text-zinc-950 font-bold uppercase tracking-widest flex items-center justify-center gap-3 hover:bg-emerald-400 transition-all disabled:opacity-50 active:scale-[0.98] shadow-md hover:shadow-emerald-500/25"
               >
                 {isSubmitting ? (
                   <span className="flex items-center gap-2 animate-pulse">Processing...</span>
@@ -168,7 +168,7 @@ const Contact = () => {
 
               {submitMessage && (
                 <div className={`text-center font-mono text-sm py-3 rounded-lg ${
-                  submitStatus === 'success' ? 'text-emerald-400 bg-emerald-500/10' : 'text-red-400 bg-red-500/10'
+                  submitStatus === 'success' ? 'text-emerald-600 dark:text-emerald-400 bg-emerald-500/10' : 'text-red-500 dark:text-red-400 bg-red-500/10'
                 }`}>
                   {submitMessage}
                 </div>

@@ -5,16 +5,27 @@
 @tailwind utilities;
 
 
-* {
-  @apply transition-colors duration-300;
-}
-
 html {
   scroll-behavior: smooth;
 }
 
 body {
-  @apply font-poppins bg-dark text-gray-300;
+  @apply font-poppins bg-slate-50 text-slate-800 dark:bg-[#09090b] dark:text-zinc-300;
+  transition: background-color 0.25s ease-out, color 0.25s ease-out;
+}
+
+/* Fast, Butter-Smooth Theme Transition (Zero lag, no layout thrashing) */
+html.theme-transitioning,
+html.theme-transitioning body,
+html.theme-transitioning header,
+html.theme-transitioning section,
+html.theme-transitioning footer,
+html.theme-transitioning article,
+html.theme-transitioning nav,
+html.theme-transitioning form,
+html.theme-transitioning input,
+html.theme-transitioning textarea {
+  transition: background-color 0.25s ease-out, border-color 0.25s ease-out, color 0.25s ease-out !important;
 }
 
 /* Section Titles */
@@ -88,11 +99,11 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  @apply bg-dark;
+  @apply bg-slate-200 dark:bg-[#09090b];
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-emerald-500 rounded-full hover:bg-primary-light;
+  @apply bg-emerald-500 rounded-full hover:bg-emerald-600 dark:hover:bg-emerald-400;
 }
 
 /* Selection Color */
