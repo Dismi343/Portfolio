@@ -127,3 +127,143 @@ html.theme-transitioning textarea {
 .animate-gradient {
   animation: gradientShift 6s ease infinite;
 }
+
+/* ─── Fade-Up Reveal Animation ─── */
+@keyframes fadeUpReveal {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-up-hidden {
+  opacity: 0;
+  transform: translateY(28px);
+}
+
+.fade-up-visible {
+  animation-name: fadeUpReveal;
+  animation-fill-mode: both;
+  animation-timing-function: ease-out;
+}
+
+/* ─── Corner Reveal Animations (for Project Cards) ─── */
+@keyframes cornerLeftReveal {
+  from {
+    opacity: 0;
+    transform: translate3d(-60px, 45px, 0) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+@keyframes cornerRightReveal {
+  from {
+    opacity: 0;
+    transform: translate3d(60px, 45px, 0) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+.corner-left-hidden {
+  opacity: 0;
+  transform: translate3d(-60px, 45px, 0) scale(0.95);
+  will-change: transform, opacity;
+}
+
+.corner-left-visible {
+  animation-name: cornerLeftReveal;
+  animation-fill-mode: both;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+}
+
+.corner-right-hidden {
+  opacity: 0;
+  transform: translate3d(60px, 45px, 0) scale(0.95);
+  will-change: transform, opacity;
+}
+
+.corner-right-visible {
+  animation-name: cornerRightReveal;
+  animation-fill-mode: both;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+}
+
+/* ─── Horizontal Slide Reveal Animations (From Left & Right to Center) ─── */
+@keyframes slideInFromLeft {
+  from {
+    opacity: 0;
+    transform: translate3d(-90px, 0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes slideInFromRight {
+  from {
+    opacity: 0;
+    transform: translate3d(90px, 0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.slide-left-hidden {
+  opacity: 0;
+  transform: translate3d(-90px, 0, 0);
+  will-change: transform, opacity;
+}
+
+.slide-left-visible {
+  animation-name: slideInFromLeft;
+  animation-fill-mode: both;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+}
+
+.slide-right-hidden {
+  opacity: 0;
+  transform: translate3d(90px, 0, 0);
+  will-change: transform, opacity;
+}
+
+.slide-right-visible {
+  animation-name: slideInFromRight;
+  animation-fill-mode: both;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+}
+
+/* Accessibility: Respect users' motion preferences for entrance animations */
+@media (prefers-reduced-motion: reduce) {
+  .fade-up-hidden,
+  .corner-left-hidden,
+  .corner-right-hidden,
+  .slide-left-hidden,
+  .slide-right-hidden {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .fade-up-visible,
+  .corner-left-visible,
+  .corner-right-visible,
+  .slide-left-visible,
+  .slide-right-visible {
+    animation: none !important;
+  }
+}

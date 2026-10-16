@@ -23,16 +23,33 @@ const Hero = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
           {/* Left Content */}
-          <div className={`lg:col-span-7 space-y-8 transition-all duration-1000 ease-out ${loaded ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'}`}>
+          <div className="lg:col-span-7 space-y-8">
             <div className="space-y-4">
-              <h3 className="text-emerald-600 dark:text-emerald-500 font-mono tracking-widest text-sm uppercase">
+              <h3 
+                style={{ transitionDelay: '100ms', transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)' }}
+                className={`text-emerald-600 dark:text-emerald-500 font-mono tracking-widest text-sm uppercase transition-all duration-700 ${
+                  loaded ? 'translate-y-0 opacity-100' : 'translate-y-6 opacity-0'
+                }`}
+              >
                 Full-Stack Developer | Backend Enthusiast | Java, Python & JavaScript
               </h3>
-              <h1 className="text-5xl md:text-7xl font-bold text-slate-900 dark:text-zinc-100 leading-[1.1]">
+              
+              <h1 
+                style={{ transitionDelay: '250ms', transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)' }}
+                className={`text-5xl md:text-7xl font-bold text-slate-900 dark:text-zinc-100 leading-[1.1] transition-all duration-700 ${
+                  loaded ? 'translate-y-0 opacity-100' : 'translate-y-6 opacity-0'
+                }`}
+              >
                 Computer Science <br /> 
                 <span className="text-slate-400 dark:text-zinc-500">Student</span>
               </h1>
-              <p className="text-slate-600 dark:text-zinc-400 text-lg md:text-xl max-w-xl leading-relaxed">
+              
+              <p 
+                style={{ transitionDelay: '400ms', transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)' }}
+                className={`text-slate-600 dark:text-zinc-400 text-lg md:text-xl max-w-xl leading-relaxed transition-all duration-700 ${
+                  loaded ? 'translate-y-0 opacity-100' : 'translate-y-6 opacity-0'
+                }`}
+              >
                 Hi, I'm <span className="text-slate-900 dark:text-zinc-100 font-medium">Yushan Dismitha</span>. 
                 I specialize in scalable backend systems and high-performance applications 
                 using <span className="text-emerald-600 dark:text-emerald-400 font-mono font-medium">LangChain</span> and <span className="text-emerald-600 dark:text-emerald-400 font-mono font-medium">Milvus</span>.
@@ -40,7 +57,12 @@ const Hero = () => {
             </div>
 
             {/* Actions */}
-            <div className="flex flex-wrap gap-4 items-center">
+            <div 
+              style={{ transitionDelay: '550ms', transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)' }}
+              className={`flex flex-wrap gap-4 items-center transition-all duration-700 ${
+                loaded ? 'translate-y-0 opacity-100' : 'translate-y-6 opacity-0'
+              }`}
+            >
               <Link
                 to="projects"
                 smooth={true}
@@ -60,7 +82,12 @@ const Hero = () => {
             </div>
 
             {/* Social & Proof */}
-            <div className="pt-8 flex items-center gap-8 border-t border-slate-200 dark:border-zinc-800/50 w-fit">
+            <div 
+              style={{ transitionDelay: '700ms', transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)' }}
+              className={`pt-8 flex items-center gap-8 border-t border-slate-200 dark:border-zinc-800/50 w-fit transition-all duration-700 ${
+                loaded ? 'translate-y-0 opacity-100' : 'translate-y-6 opacity-0'
+              }`}
+            >
               <div className="flex gap-5">
                 <a href="https://github.com/Dismi343" target="_blank" rel="noopener noreferrer" className="text-slate-500 hover:text-emerald-600 dark:text-zinc-500 dark:hover:text-emerald-500 transition-colors text-2xl">
                   <FaGithub />
@@ -81,7 +108,12 @@ const Hero = () => {
           </div>
 
           {/* Right Content - Realistic Portrait Container */}
-          <div className={`lg:col-span-5 relative transition-all duration-1000 delay-300 ${loaded ? 'scale-100 opacity-100' : 'scale-95 opacity-0'}`}>
+          <div 
+            style={{ transitionDelay: '350ms', transitionTimingFunction: 'cubic-bezier(0.16, 1, 0.3, 1)' }}
+            className={`lg:col-span-5 relative transition-all duration-1000 ${
+              loaded ? 'scale-100 opacity-100 translate-y-0' : 'scale-95 opacity-0 translate-y-8'
+            }`}
+          >
             <div className="relative w-full max-w-[420px] mx-auto aspect-[4/5] rounded-3xl overflow-hidden grayscale hover:grayscale-0 transition-all duration-700 ease-in-out border border-slate-200 dark:border-zinc-800 bg-white dark:bg-zinc-900 shadow-2xl">
               <img 
                 src={profile} 

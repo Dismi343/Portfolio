@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaMediumM, FaExternalLinkAlt } from 'react-icons/fa';
+import Reveal from './Reveal';
 
 const Articles = () => {
   const articles = [
@@ -28,52 +29,57 @@ const Articles = () => {
     >
       <div className="container mx-auto px-6 lg:px-12">
         <div className="max-w-4xl mb-16">
-          <div className="inline-flex items-center gap-3 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 mb-6">
-            <FaMediumM className="text-emerald-600 dark:text-emerald-500" />
-            <span className="text-emerald-600 dark:text-emerald-500 text-xs font-mono uppercase tracking-[0.2em]">
-              Technical Writing
-            </span>
-          </div>
+          <Reveal delay={0}>
+            <div className="inline-flex items-center gap-3 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 mb-6">
+              <FaMediumM className="text-emerald-600 dark:text-emerald-500" />
+              <span className="text-emerald-600 dark:text-emerald-500 text-xs font-mono uppercase tracking-[0.2em]">
+                Technical Writing
+              </span>
+            </div>
+          </Reveal>
 
-          <h2 className="text-5xl md:text-7xl font-bold tracking-tight text-slate-900 dark:text-zinc-100">
-            Medium <span className="text-slate-400 dark:text-zinc-500 italic font-light">Articles</span>
-          </h2>
+          <Reveal delay={100}>
+            <h2 className="text-5xl md:text-7xl font-bold tracking-tight text-slate-900 dark:text-zinc-100">
+              Medium <span className="text-slate-400 dark:text-zinc-500 italic font-light">Articles</span>
+            </h2>
+          </Reveal>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {articles.map((article) => (
-            <article
-              key={article.id}
-              className="group flex flex-col p-8 bg-slate-50 dark:bg-zinc-900/40 border border-slate-200 dark:border-zinc-800/50 rounded-2xl hover:border-emerald-500/40 dark:hover:border-emerald-500/30 hover:shadow-xl transition-all duration-500 shadow-sm dark:shadow-none"
-            >
-              <div className="flex items-center justify-between mb-8">
-                <div className="w-12 h-12 flex items-center justify-center rounded-xl bg-slate-200 dark:bg-zinc-800 text-emerald-600 dark:text-emerald-500">
-                  <FaMediumM size={22} />
+          {articles.map((article, index) => (
+            <Reveal key={article.id} delay={index * 150} className="h-full flex">
+              <article
+                className="group flex flex-col w-full p-8 bg-slate-50 dark:bg-zinc-900/40 border border-slate-200 dark:border-zinc-800/50 rounded-2xl hover:border-emerald-500/40 dark:hover:border-emerald-500/30 hover:shadow-xl transition-all duration-500 shadow-sm dark:shadow-none"
+              >
+                <div className="flex items-center justify-between mb-8">
+                  <div className="w-12 h-12 flex items-center justify-center rounded-xl bg-slate-200 dark:bg-zinc-800 text-emerald-600 dark:text-emerald-500">
+                    <FaMediumM size={22} />
+                  </div>
+
+                  <span className="text-xs font-mono text-slate-500 dark:text-zinc-600">
+                    {article.date}
+                  </span>
                 </div>
 
-                <span className="text-xs font-mono text-slate-500 dark:text-zinc-600">
-                  {article.date}
-                </span>
-              </div>
+                <h3 className="text-xl font-bold text-slate-900 dark:text-zinc-100 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors mb-4">
+                  {article.title}
+                </h3>
 
-              <h3 className="text-xl font-bold text-slate-900 dark:text-zinc-100 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors mb-4">
-                {article.title}
-              </h3>
+                <p className="text-slate-600 dark:text-zinc-400 text-sm leading-relaxed mb-8">
+                  {article.description}
+                </p>
 
-              <p className="text-slate-600 dark:text-zinc-400 text-sm leading-relaxed mb-8">
-                {article.description}
-              </p>
-
-              <a
-                href={article.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-auto w-full py-3 rounded-xl bg-emerald-500 text-zinc-950 font-bold text-xs uppercase tracking-widest flex items-center justify-center gap-2 hover:bg-emerald-400 transition-all shadow-md hover:shadow-emerald-500/25"
-              >
-                Read Article
-                <FaExternalLinkAlt size={10} />
-              </a>
-            </article>
+                <a
+                  href={article.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-auto w-full py-3 rounded-xl bg-emerald-500 text-zinc-950 font-bold text-xs uppercase tracking-widest flex items-center justify-center gap-2 hover:bg-emerald-400 transition-all shadow-md hover:shadow-emerald-500/25"
+                >
+                  Read Article
+                  <FaExternalLinkAlt size={10} />
+                </a>
+              </article>
+            </Reveal>
           ))}
         </div>
       </div>
