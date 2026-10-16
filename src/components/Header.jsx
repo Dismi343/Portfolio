@@ -26,17 +26,16 @@ const Header = () => {
   ];
 
   return (
-    <header 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        isScrolled 
-          ? 'py-4 backdrop-blur-xl bg-white/80 dark:bg-zinc-950/80 border-b border-slate-200/80 dark:border-zinc-800/50 shadow-md dark:shadow-2xl' 
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled
+          ? 'py-4 backdrop-blur-xl bg-white/80 dark:bg-zinc-950/80 border-b border-slate-200/80 dark:border-zinc-800/50 shadow-md dark:shadow-2xl'
           : 'py-8 bg-transparent'
-      }`}
+        }`}
     >
       <div className="container mx-auto px-6 lg:px-12">
         <div className="flex justify-between items-center">
           {/* Logo */}
-          <Link 
+          <Link
             to="hero"
             smooth={true}
             duration={500}
@@ -56,12 +55,12 @@ const Header = () => {
           {/* Desktop Navigation */}
           <nav className={`hidden md:flex items-center gap-2 transition-all duration-700 ${isOpen ? 'translate-y-0 opacity-100' : 'translate-y-5 opacity-0'}`}>
             {navLinks.map((link) => (
-              <Link 
+              <Link
                 key={link.to}
                 activeClass="!text-emerald-600 dark:!text-emerald-400 !bg-emerald-500/10 dark:!bg-emerald-500/5"
                 to={link.to}
-                spy={true} 
-                smooth={true} 
+                spy={true}
+                smooth={true}
                 duration={500}
                 offset={-80}
                 className="text-slate-600 dark:text-zinc-400 hover:text-slate-900 dark:hover:text-zinc-100 text-sm font-medium px-4 py-2 rounded-full transition-all duration-300 cursor-pointer relative"
@@ -69,7 +68,7 @@ const Header = () => {
                 {link.label}
               </Link>
             ))}
-            
+
             {/* Terminal CTA Style Link */}
             <Link
               to="contact"
@@ -81,7 +80,7 @@ const Header = () => {
           </nav>
 
           {/* Mobile menu button */}
-          <button 
+          <button
             className="md:hidden text-slate-900 dark:text-zinc-100 p-2 focus:outline-none"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label="Toggle menu"
@@ -99,11 +98,11 @@ const Header = () => {
           <div className="bg-white/95 dark:bg-zinc-900 border border-slate-200 dark:border-zinc-800 rounded-2xl p-4 shadow-2xl backdrop-blur-2xl">
             <nav className="flex flex-col gap-1">
               {navLinks.map((link) => (
-                <Link 
+                <Link
                   key={link.to}
                   to={link.to}
-                  spy={true} 
-                  smooth={true} 
+                  spy={true}
+                  smooth={true}
                   duration={500}
                   offset={-80}
                   className="text-slate-600 dark:text-zinc-400 hover:text-emerald-600 dark:hover:text-emerald-400 hover:bg-emerald-500/10 dark:hover:bg-emerald-500/5 px-4 py-3 rounded-xl text-sm font-medium transition-all"
